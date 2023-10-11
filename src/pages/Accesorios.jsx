@@ -1,7 +1,8 @@
+import DisplayItems from "../components/DisplayItems";
 const Accesorios = () => {
   return (
     <>
-      <h1>Accesorios</h1>
+      <DisplayItems />
     </>
   );
 };

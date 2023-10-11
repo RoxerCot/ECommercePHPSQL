@@ -1,7 +1,8 @@
+import DisplayItems from "../components/DisplayItems";
 const Mangas = () => {
   return (
     <>
-      <h1>Mangas</h1>
+      <DisplayItems />
     </>
   );
 };

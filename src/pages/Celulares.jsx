@@ -1,9 +1,9 @@
-import { defer } from "react-router-dom";
+import DisplayItems from "../components/DisplayItems";
 
 const Celulares = () => {
   return (
     <>
-      <h1>Celulares</h1>
+      <DisplayItems />
     </>
   );
 };
