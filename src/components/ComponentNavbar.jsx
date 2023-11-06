@@ -1,14 +1,27 @@
 import { Button, Navbar } from "flowbite-react";
-import { logout } from "../config/firebase";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import AvatarDropDown from "./AvatarDropDown";
+const URL = "http://localhost/BackEnd2/Interface.php";
 
 const ComponentNavbar = () => {
+  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      await logout();
+      var data = new FormData();
+      data.append("usuario", JSON.parse(localStorage.getItem("Usuario")));
+      data.append("METHOD", "LOGOUT");
+      localStorage.setItem("Usuario", null);
+      logOut(URL, data);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const logOut = async (url, data) => {
+    const resp = await fetch(url, {
+      method: "POST",
+      body: data,
+    }).then(() => navigate(0));
   };
   return (
     <>
@@ -20,6 +33,8 @@ const ComponentNavbar = () => {
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
+          {/* AQUI VA EL COMPONENTE DEL AVATAR DROPDOWN */}
+          <AvatarDropDown />
           <Button onClick={handleLogout}>Log Out</Button>
           <Navbar.Toggle />
         </div>

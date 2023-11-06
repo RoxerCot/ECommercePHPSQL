@@ -4,7 +4,7 @@ import Products from "../pages/Products";
 
 const PrivateLayout = () => {
   const { user } = useUserContext();
-
+  console.log(user);
   return user ? (
     <>
       <Products />
