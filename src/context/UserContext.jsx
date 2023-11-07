@@ -1,8 +1,6 @@
-import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
-import { auth } from "../config/firebase";
 
 const URL = "http://localhost/BackEnd2/Interface.php";
 const UserContext = createContext();
