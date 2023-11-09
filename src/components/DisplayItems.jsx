@@ -3,60 +3,43 @@ import { useEffect, useState } from "react";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const DisplayItems = ({ props }) => {
-  const { page } = props;
-  const [arrayItems, setArrayItems] = useState(false);
-  var dataDisplay = [];
-
+  const { page, items, number } = props;
+  const [limit, setLimit] = useState(false);
+  const [index, setIndex] = useState(0);
   useEffect(() => {
-    const fetchData = async () => {
-      var data = new FormData();
-      data.append("METHOD", "GETPHONES");
-      const resp = await fetch(URL, {
-        method: "POST",
-        body: data,
-      });
-      const resp_json = await resp.json();
-      setArrayItems(resp_json);
-    };
-    fetchData();
-
-    return () => {};
-  }, [page]);
-  function ObjectToArray(object, array) {
-    for (var i in object) {
-      array.push(Object.values(object[i]));
-    }
-    console.log(array);
-    return array;
-  }
+    var x = number * (page - 1);
+    setIndex(x);
+    setLimit(parseInt(x) + parseInt(number));
+  }, [number, page]);
   return (
-    <div className="flex flex-col mt-8 gap-y-6  ml-12 mr-12">
-      <div className="flex flex-row justify-center w-fit gap-x-8 h-fit">
-        {ObjectToArray(arrayItems, dataDisplay).map((arrayItem) => (
+    <div className="flex flex-row flex-wrap mt-8 mr-32 ml-32 justify-center">
+      {items.slice(index, limit).map((Item) => (
+        <div className="ml-5 mr-5 mb-5" key={Item[0]}>
           <Card
-            key={arrayItem[0]}
+            key={Item[0]}
             imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
+            className="basis-2/6 w-50 "
           >
-            <img src={arrayItem[3]} className="h-32 w-5/6 " />
+            <img src={Item[3]} className="h-32 w-40 " />
             <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                <p>{arrayItem[2]}</p>
+              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white w-40">
+                <p>{Item[2]}</p>
               </h5>
             </a>
             <a
-              className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+              className="w-40 rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
               href="#"
             >
               <p>Agragar</p>
             </a>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between w-40">
               <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                ${Intl.NumberFormat().format(arrayItem[4])}
+                ${Intl.NumberFormat().format(Item[4])}
               </span>
             </div>
           </Card>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
