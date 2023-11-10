@@ -23,7 +23,7 @@ const DisplayItems = ({ props }) => {
             <img src={Item[3]} className="h-32 w-40 " />
             <a href="#">
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white w-40">
-                <p>{Item[2]}</p>
+                <p>{Item[1]}</p>
               </h5>
             </a>
             <a
