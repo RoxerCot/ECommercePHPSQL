@@ -8,6 +8,8 @@ const UserContext = createContext();
 export default function UserContextProvider({ children }) {
   const [user, setUser] = useState(false);
   const [dataJSON, setDataJSON] = useState(false);
+  const [producto, setProducto] = useState(false);
+  const [productos, setProductos] = useState(false);
 
   useEffect(() => {
     console.log(JSON.parse(localStorage.getItem("Usuario")));
@@ -32,7 +34,11 @@ export default function UserContextProvider({ children }) {
     }
   }, []);
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider
+      value={{ user, producto, setProducto, productos, setProductos }}
+    >
+      {children}
+    </UserContext.Provider>
   );
 }
 

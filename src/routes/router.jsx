@@ -10,6 +10,7 @@ import Accesorios from "../pages/Accesorios";
 import Tablets from "../pages/Tablets";
 import Mangas from "../pages/Mangas";
 import PrivateLayout from "../layouts/PrivateLayout";
+import Item from "../pages/Item";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
               {
                 path: "/productos/mangas",
                 element: <Mangas />,
+              },
+              {
+                path: "/productos/item",
+                element: <Item />,
               },
             ],
           },
