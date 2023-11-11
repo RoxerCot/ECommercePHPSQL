@@ -5,6 +5,8 @@ import { useUserContext } from "../context/UserContext";
 const DisplayItem = ({ props }) => {
   const { productos } = useUserContext();
   const { item } = props;
+
+  productos;
   console.log(productos);
   return (
     <div className="flex flex-col h-screen mt-12 space-y-12">
