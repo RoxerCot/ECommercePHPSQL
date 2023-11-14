@@ -1,13 +1,13 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import Products from "../pages/Products";
+import AdminNavbar from "../components/AdminNavbar";
+import ComponentNavbar from "../components/ComponentNavbar";
 
 const PrivateLayout = () => {
-  const { user } = useUserContext();
-  console.log(user);
+  const { user, admin } = useUserContext();
   return user ? (
     <>
-      <Products />
+      {admin == 1 ? <AdminNavbar /> : <ComponentNavbar />}
       <Outlet />
     </>
   ) : (

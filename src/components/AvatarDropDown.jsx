@@ -1,11 +1,12 @@
 import { Avatar, Dropdown } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 
 const URL = "http://localhost/BackEnd2/Interface.php";
 
 const AvatarDropDown = () => {
+  const { admin } = useUserContext();
   const navigate = useNavigate();
-
   const handleDelete = async () => {
     var data = new FormData();
     data.append("usuario", JSON.parse(localStorage.getItem("Usuario")));
@@ -20,10 +21,12 @@ const AvatarDropDown = () => {
       method: "POST",
       body: data,
     }).then(() => navigate(0));
-    console.log(resp);
   };
   const handleCart = () => {
     navigate("/productos/carrito");
+  };
+  const handleAdmin = () => {
+    navigate("/productos/admin");
   };
   return (
     <Dropdown
@@ -44,9 +47,13 @@ const AvatarDropDown = () => {
           name@flowbite.com
         </span>
       </Dropdown.Header>
-      <Dropdown.Item onClick={handleCart}>Carrito</Dropdown.Item>
-      <Dropdown.Divider />
-      <Dropdown.Item onClick={handleDelete}>Borrar Usuario</Dropdown.Item>
+      {admin == 1 ? null : (
+        <>
+          <Dropdown.Item onClick={handleCart}>Carrito</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item onClick={handleDelete}>Borrar Usuario</Dropdown.Item>
+        </>
+      )}
     </Dropdown>
   );
 };

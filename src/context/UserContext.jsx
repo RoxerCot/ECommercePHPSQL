@@ -12,10 +12,10 @@ export default function UserContextProvider({ children }) {
   const [cantidad, setCantidad] = useState(false);
   const [userId, setUserId] = useState(false);
   const [productoCarrito, setProductoCarrito] = useState(false);
+  const [totalCompra, setTotalCompra] = useState(0);
+  const [admin, setAdmin] = useState(0);
 
   useEffect(() => {
-    console.log(userId);
-    console.log(JSON.parse(localStorage.getItem("Usuario")));
     if (JSON.parse(localStorage.getItem("Usuario"))) {
       const fetchData = async () => {
         var data = new FormData();
@@ -26,7 +26,9 @@ export default function UserContextProvider({ children }) {
           method: "POST",
           body: data,
         });
-        const { Id, Sesion } = await resp.json();
+        const { Id, Sesion, Admin } = await resp.json();
+        console.log(Admin);
+        setAdmin(Admin);
         setUserId(Id);
         if (Sesion) {
           setUser(JSON.parse(localStorage.getItem("Usuario")));
@@ -44,6 +46,10 @@ export default function UserContextProvider({ children }) {
         productoCarrito,
         cantidad,
         userId,
+        totalCompra,
+        admin,
+        setAdmin,
+        setTotalCompra,
         setUserId,
         setProducto,
         setProductos,

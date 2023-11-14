@@ -14,7 +14,6 @@ const Login = () => {
   };
   /** */
   useEffect(() => {
-    console.log(user);
     if (user) {
       navigate("/productos");
     }
