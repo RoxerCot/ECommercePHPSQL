@@ -11,6 +11,7 @@ import Tablets from "../pages/Tablets";
 import Mangas from "../pages/Mangas";
 import PrivateLayout from "../layouts/PrivateLayout";
 import Item from "../pages/Item";
+import Carrito from "../pages/Carrito";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
               {
                 path: "/productos/item",
                 element: <Item />,
+              },
+              {
+                path: "/productos/carrito",
+                element: <Carrito />,
               },
             ],
           },

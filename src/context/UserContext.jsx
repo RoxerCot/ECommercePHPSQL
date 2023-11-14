@@ -2,16 +2,19 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 
-const URL = "http://localhost/BackEnd2/Interface.php";
+const URL = "http://localhost/BackEnd2/Api.php";
 const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
   const [user, setUser] = useState(false);
-  const [dataJSON, setDataJSON] = useState(false);
   const [producto, setProducto] = useState(false);
   const [productos, setProductos] = useState(false);
+  const [cantidad, setCantidad] = useState(false);
+  const [userId, setUserId] = useState(false);
+  const [productoCarrito, setProductoCarrito] = useState(false);
 
   useEffect(() => {
+    console.log(userId);
     console.log(JSON.parse(localStorage.getItem("Usuario")));
     if (JSON.parse(localStorage.getItem("Usuario"))) {
       const fetchData = async () => {
@@ -23,9 +26,8 @@ export default function UserContextProvider({ children }) {
           method: "POST",
           body: data,
         });
-        const { Sesion } = await resp.json();
-        setDataJSON(Sesion);
-        console.log(Sesion);
+        const { Id, Sesion } = await resp.json();
+        setUserId(Id);
         if (Sesion) {
           setUser(JSON.parse(localStorage.getItem("Usuario")));
         }
@@ -35,7 +37,19 @@ export default function UserContextProvider({ children }) {
   }, []);
   return (
     <UserContext.Provider
-      value={{ user, producto, setProducto, productos, setProductos }}
+      value={{
+        user,
+        producto,
+        productos,
+        productoCarrito,
+        cantidad,
+        userId,
+        setUserId,
+        setProducto,
+        setProductos,
+        setCantidad,
+        setProductoCarrito,
+      }}
     >
       {children}
     </UserContext.Provider>

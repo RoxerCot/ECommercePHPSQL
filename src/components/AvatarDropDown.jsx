@@ -22,7 +22,9 @@ const AvatarDropDown = () => {
     }).then(() => navigate(0));
     console.log(resp);
   };
-
+  const handleCart = () => {
+    navigate("/productos/carrito");
+  };
   return (
     <Dropdown
       arrowIcon={false}
@@ -42,6 +44,7 @@ const AvatarDropDown = () => {
           name@flowbite.com
         </span>
       </Dropdown.Header>
+      <Dropdown.Item onClick={handleCart}>Carrito</Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item onClick={handleDelete}>Borrar Usuario</Dropdown.Item>
     </Dropdown>

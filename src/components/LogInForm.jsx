@@ -4,21 +4,6 @@ import { useNavigate } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Interface.php";
 
 const LogInForm = () => {
-  // /** */
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const handleSubmit = async (e) => {
-  //   /**Firebase Variables */
-  //   e.preventDefault();
-  //   console.log("Me diste submit");
-  //   try {
-  //     const credentialUser = await login({ email, password });
-  //     console.log(credentialUser);
-  //   } catch {
-  //     console.log(error);
-  //   }
-  // };
-
   const navigate = useNavigate();
   const refEmail = useRef(null);
   const refPswd = useRef(null);
@@ -31,6 +16,7 @@ const LogInForm = () => {
     data.append("METHOD", "LOGIN");
     console.log(data);
     localStorage.setItem("Usuario", JSON.stringify(refEmail.current.value));
+    console.log("Setting User ID");
     logIn(URL, data);
   };
 

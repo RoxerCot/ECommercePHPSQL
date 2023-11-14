@@ -33,11 +33,10 @@ const ComponentNavbar = () => {
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
-          {/* AQUI VA EL COMPONENTE DEL AVATAR DROPDOWN */}
           <AvatarDropDown />
           <Button onClick={handleLogout}>Log Out</Button>
-          <Navbar.Toggle />
         </div>
+        <Navbar.Toggle />
         <Navbar.Collapse>
           <NavLink active="true" to="/">
             <p>Inicio</p>
