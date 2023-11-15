@@ -14,6 +14,8 @@ export default function UserContextProvider({ children }) {
   const [productoCarrito, setProductoCarrito] = useState(false);
   const [totalCompra, setTotalCompra] = useState(0);
   const [admin, setAdmin] = useState(0);
+  const [usersList, setUsersList] = useState(0);
+  const [nameUser, setNameUser] = useState(0);
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("Usuario"))) {
@@ -26,10 +28,11 @@ export default function UserContextProvider({ children }) {
           method: "POST",
           body: data,
         });
-        const { Id, Sesion, Admin } = await resp.json();
+        const { Id, Sesion, Admin, Usuario } = await resp.json();
         console.log(Admin);
         setAdmin(Admin);
         setUserId(Id);
+        setNameUser(Usuario);
         if (Sesion) {
           setUser(JSON.parse(localStorage.getItem("Usuario")));
         }
@@ -48,6 +51,10 @@ export default function UserContextProvider({ children }) {
         userId,
         totalCompra,
         admin,
+        nameUser,
+        usersList,
+        setUsersList,
+        setNameUser,
         setAdmin,
         setTotalCompra,
         setUserId,

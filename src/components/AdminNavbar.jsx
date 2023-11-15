@@ -38,10 +38,10 @@ const AdminNavbar = () => {
         </div>
         <Navbar.Toggle />
         <Navbar.Collapse>
-          <NavLink active="true" to="/">
+          <NavLink active="true" to="/admin">
             <p>Usuarios</p>
           </NavLink>
-          <NavLink to="/productos/celulares">Celulares</NavLink>
+          <NavLink to="/admin/celulares">Celulares</NavLink>
           <NavLink to="/productos/tablets">Tablets</NavLink>
           <NavLink to="/productos/accesorios">Accesorios</NavLink>
           <NavLink to="/productos/mangas">Mangas</NavLink>

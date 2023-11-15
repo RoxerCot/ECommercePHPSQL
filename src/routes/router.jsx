@@ -14,6 +14,9 @@ import Item from "../pages/Item";
 import Carrito from "../pages/Carrito";
 import Compra from "../pages/Compra";
 import Admin from "../pages/Admin";
+import AdminLayout from "../layouts/AdminLayout";
+import InicioAdmin from "../pages/InicioAdmin";
+import CelularesAdmin from "../pages/CelularesAdmin";
 
 export const router = createBrowserRouter([
   {
@@ -70,10 +73,41 @@ export const router = createBrowserRouter([
                 path: "/productos/compra",
                 element: <Compra />,
               },
+            ],
+          },
+          {
+            path: "/admin",
+            element: <AdminLayout />,
+            children: [
               {
-                path: "/productos/admin",
-                element: <Admin />,
+                index: true,
+                element: <InicioAdmin />,
+                active: "true",
               },
+              {
+                path: "/admin/celulares",
+                element: <CelularesAdmin />,
+              },
+              // {
+              //   path: "/admin/tablets",
+              //   element: <TabletsAdmin />,
+              // },
+              // {
+              //   path: "/admin/accesorios",
+              //   element: <AccesoriosAdmin />,
+              // },
+              // {
+              //   path: "/admin/mangas",
+              //   element: <MangasAdmin />,
+              // },
+              // {
+              //   path: "/productos/carritos",
+              //   element: <CarritoAdmin />,
+              // },
+              // {
+              //   path: "/productos/compra",
+              //   element: <CompraAdmin />,
+              // },
             ],
           },
         ],

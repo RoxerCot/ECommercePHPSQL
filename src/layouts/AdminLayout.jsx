@@ -1,13 +1,14 @@
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import AdminNavbar from "../components/AdminNavbar";
 import ComponentNavbar from "../components/ComponentNavbar";
 
-const PrivateLayout = () => {
-  const { user } = useUserContext();
+const AdminLayout = () => {
+  const { admin } = useUserContext();
 
-  return user ? (
+  return admin ? (
     <>
-      <ComponentNavbar />
+      <AdminNavbar />
       <Outlet />
     </>
   ) : (
@@ -15,4 +16,4 @@ const PrivateLayout = () => {
   );
 };
 
-export default PrivateLayout;
+export default AdminLayout;

@@ -5,7 +5,7 @@ import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Interface.php";
 
 const AvatarDropDown = () => {
-  const { admin } = useUserContext();
+  const { admin, nameUser } = useUserContext();
   const navigate = useNavigate();
   const handleDelete = async () => {
     var data = new FormData();
@@ -41,12 +41,11 @@ const AvatarDropDown = () => {
         />
       }
     >
-      <Dropdown.Header>
-        <span className="block text-sm">Bonnie Green</span>
-        <span className="block truncate text-sm font-medium">
-          name@flowbite.com
-        </span>
+      {console.log(nameUser)}
+      <Dropdown.Header className="">
+        <span className="block text-sm">{admin == 1 ? "Admin" : "User"}</span>
       </Dropdown.Header>
+      <Dropdown.Item>{nameUser}</Dropdown.Item>
       {admin == 1 ? null : (
         <>
           <Dropdown.Item onClick={handleCart}>Carrito</Dropdown.Item>

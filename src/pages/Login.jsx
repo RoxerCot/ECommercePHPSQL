@@ -5,7 +5,7 @@ import LogInForm from "../components/LogInForm";
 import { Button } from "flowbite-react";
 
 const Login = () => {
-  const { user } = useUserContext();
+  const { user, admin } = useUserContext();
   /**Navigate Variable */
   const navigate = useNavigate();
   /**Navigate Functtion */
@@ -15,7 +15,13 @@ const Login = () => {
   /** */
   useEffect(() => {
     if (user) {
-      navigate("/productos");
+      if (admin == 1) {
+        console.log("Admin");
+        navigate("/admin");
+      } else {
+        console.log("User");
+        navigate("/productos");
+      }
     }
   }, [user]);
 

@@ -1,13 +1,14 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Interface.php";
 
 const LogInForm = () => {
   const navigate = useNavigate();
   const refEmail = useRef(null);
   const refPswd = useRef(null);
-
+  const { admin } = useUserContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     var data = new FormData();
@@ -24,7 +25,10 @@ const LogInForm = () => {
     const resp = await fetch(url, {
       method: "POST",
       body: data,
-    }).then(() => navigate(0));
+    }).then(() => {
+      console.log(admin);
+      navigate(0);
+    });
     console.log(resp);
   };
 
