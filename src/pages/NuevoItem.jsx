@@ -31,7 +31,7 @@ const NuevoItem = () => {
     }).then(() => navigate(0));
   };
   return (
-    <div className="flex flex-col h-screen mt-12 space-y-12 items-center content-start space-y-5">
+    <div className="flex flex-col h-screen mt-12 space-y-12 items-center content-start ">
       <div className="flex flex-row space-x-2 items-center w-3/4">
         <div className="flex flex-col basis-1/3">
           <Label>Nombre:</Label>

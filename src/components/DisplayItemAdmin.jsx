@@ -32,7 +32,7 @@ const DisplayItemAdmin = ({ props }) => {
     }).then(() => navigate(0));
   };
   return (
-    <div className="flex flex-col h-screen mt-12 space-y-12 items-center content-start space-y-5">
+    <div className="flex flex-col h-screen mt-12 space-y-12 items-center content-start ">
       <h1 className="font-bold ">{item[1]}</h1>
       <img src={item[3]} className="object-contain h-32"></img>
       <div className="flex flex-row">
