@@ -38,7 +38,7 @@ const UserList = () => {
       {usersList ? (
         <div className="w-screen flex flex-col justify-center items-center mt-8">
           {usersList.map((user) => (
-            <ListGroup className="w-3/4 flex flex-row">
+            <ListGroup key={user[0]} className="w-3/4 flex flex-row">
               <ListGroup.Item className="basis-1/4">{user[0]}</ListGroup.Item>
               <ListGroup.Item className="basis-1/4">{user[1]}</ListGroup.Item>
               <ListGroup.Item className="basis-1/4">{user[3]}</ListGroup.Item>

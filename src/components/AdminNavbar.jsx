@@ -42,9 +42,10 @@ const AdminNavbar = () => {
             <p>Usuarios</p>
           </NavLink>
           <NavLink to="/admin/celulares">Celulares</NavLink>
-          <NavLink to="/productos/tablets">Tablets</NavLink>
-          <NavLink to="/productos/accesorios">Accesorios</NavLink>
-          <NavLink to="/productos/mangas">Mangas</NavLink>
+          <NavLink to="/admin/tablets">Tablets</NavLink>
+          <NavLink to="/admin/accesorios">Accesorios</NavLink>
+          <NavLink to="/admin/mangas">Mangas</NavLink>
+          <NavLink to="/admin/nuevoitem">Nuevo Item</NavLink>
         </Navbar.Collapse>
       </Navbar>
     </>

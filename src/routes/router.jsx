@@ -17,6 +17,11 @@ import Admin from "../pages/Admin";
 import AdminLayout from "../layouts/AdminLayout";
 import InicioAdmin from "../pages/InicioAdmin";
 import CelularesAdmin from "../pages/CelularesAdmin";
+import TabletsAdmin from "../pages/TabletsAdmin";
+import AccesoriosAdmin from "../pages/AccesoriosAdmin";
+import MangasAdmin from "../pages/MangasAdmin";
+import ItemAdmin from "../pages/ItemAdmin";
+import NuevoItem from "../pages/NuevoItem";
 
 export const router = createBrowserRouter([
   {
@@ -88,26 +93,26 @@ export const router = createBrowserRouter([
                 path: "/admin/celulares",
                 element: <CelularesAdmin />,
               },
-              // {
-              //   path: "/admin/tablets",
-              //   element: <TabletsAdmin />,
-              // },
-              // {
-              //   path: "/admin/accesorios",
-              //   element: <AccesoriosAdmin />,
-              // },
-              // {
-              //   path: "/admin/mangas",
-              //   element: <MangasAdmin />,
-              // },
-              // {
-              //   path: "/productos/carritos",
-              //   element: <CarritoAdmin />,
-              // },
-              // {
-              //   path: "/productos/compra",
-              //   element: <CompraAdmin />,
-              // },
+              {
+                path: "/admin/tablets",
+                element: <TabletsAdmin />,
+              },
+              {
+                path: "/admin/accesorios",
+                element: <AccesoriosAdmin />,
+              },
+              {
+                path: "/admin/mangas",
+                element: <MangasAdmin />,
+              },
+              {
+                path: "/admin/item",
+                element: <ItemAdmin />,
+              },
+              {
+                path: "/admin/nuevoitem",
+                element: <NuevoItem />,
+              },
             ],
           },
         ],

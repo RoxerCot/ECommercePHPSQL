@@ -50,24 +50,18 @@ const DisplayItemsAdmin = ({ props }) => {
           >
             <img src={Item[3]} className="h-32 w-40 " />
             <Link
-              to="/productos/item"
+              to="/admin/item"
               className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white w-40"
               onClick={() => handleItemClick(Item)}
             >
               <p>{Item[1]}</p>
             </Link>
-            <Button onClick={() => handleAddItem(Item[0])}>Eliminar</Button>
             {/* <a
               className="w-40 rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
               href="#"
             >
               <p>Agragar</p>
             </a> */}
-            <div className="flex items-center justify-between w-40">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                {Intl.NumberFormat().format(Item[4])}
-              </span>
-            </div>
           </Card>
         </div>
       ))}
