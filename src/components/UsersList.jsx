@@ -32,13 +32,18 @@ const UserList = () => {
     return () => {};
   }, []);
   return (
-    <div className="">
+    <div className="flex flex-col  ">
       {console.log(usersList)}
-      <p>UserList</p>
+      <div className="flex justify-center items-center">
+        <p>UserList</p>
+      </div>
       {usersList ? (
-        <div className="w-screen flex flex-col justify-center items-center mt-8">
+        <div className="flex  flex-col justify-center items-center">
           {usersList.map((user) => (
-            <ListGroup key={user[0]} className="w-3/4 flex flex-row">
+            <ListGroup
+              key={user[0]}
+              className="w-3/4 flex flex-row justify-center items-center"
+            >
               <ListGroup.Item className="basis-1/4">{user[0]}</ListGroup.Item>
               <ListGroup.Item className="basis-1/4">{user[1]}</ListGroup.Item>
               <ListGroup.Item className="basis-1/4">{user[3]}</ListGroup.Item>

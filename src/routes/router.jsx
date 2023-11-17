@@ -22,6 +22,7 @@ import AccesoriosAdmin from "../pages/AccesoriosAdmin";
 import MangasAdmin from "../pages/MangasAdmin";
 import ItemAdmin from "../pages/ItemAdmin";
 import NuevoItem from "../pages/NuevoItem";
+import NuevoUsuario from "../pages/NuevoUsuario";
 
 export const router = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ export const router = createBrowserRouter([
               {
                 path: "/admin/nuevoitem",
                 element: <NuevoItem />,
+              },
+              {
+                path: "/admin/nuevousuario",
+                element: <NuevoUsuario />,
               },
             ],
           },

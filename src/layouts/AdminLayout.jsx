@@ -7,10 +7,10 @@ const AdminLayout = () => {
   const { admin } = useUserContext();
 
   return admin ? (
-    <>
+    <div className="flex flex-row space-x-4">
       <AdminNavbar />
       <Outlet />
-    </>
+    </div>
   ) : (
     <Navigate to="/" />
   );

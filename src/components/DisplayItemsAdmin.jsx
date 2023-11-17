@@ -40,13 +40,13 @@ const DisplayItemsAdmin = ({ props }) => {
   };
 
   return (
-    <div className="flex flex-row flex-wrap mt-8 mr-32 ml-32 justify-center">
+    <div className="">
       {items.slice(index, limit).map((Item) => (
-        <div className="ml-5 mr-5 mb-5" key={Item[0]}>
+        <div className="" key={Item[0]}>
           <Card
             key={Item[0]}
             imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-            className="basis-2/6 w-50 "
+            className=""
           >
             <img src={Item[3]} className="h-32 w-40 " />
             <Link
