@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ListGroup } from "flowbite-react";
+import { ListGroup, Table } from "flowbite-react";
 import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Api.php";
 
@@ -24,7 +24,6 @@ const UserList = () => {
         body: data,
       });
       const resp_json = await resp.json();
-      console.log(resp_json);
       dataDisplay = ObjectToArray(resp_json, dataDisplay);
       setUsersList(ObjectToArray(resp_json, usersList));
     };
@@ -32,24 +31,37 @@ const UserList = () => {
     return () => {};
   }, []);
   return (
-    <div className="flex flex-col  ">
-      {console.log(usersList)}
+    <div className="flex flex-col w-screen">
       <div className="flex justify-center items-center">
         <p>UserList</p>
       </div>
       {usersList ? (
-        <div className="flex  flex-col justify-center items-center">
-          {usersList.map((user) => (
-            <ListGroup
-              key={user[0]}
-              className="w-3/4 flex flex-row justify-center items-center"
-            >
-              <ListGroup.Item className="basis-1/4">{user[0]}</ListGroup.Item>
-              <ListGroup.Item className="basis-1/4">{user[1]}</ListGroup.Item>
-              <ListGroup.Item className="basis-1/4">{user[3]}</ListGroup.Item>
-            </ListGroup>
-          ))}
-        </div>
+        <Table className="w-fit" hoverable>
+          <Table.Head>
+            <Table.HeadCell>Id</Table.HeadCell>
+            <Table.HeadCell>Usuario</Table.HeadCell>
+            <Table.HeadCell>Sesion activa</Table.HeadCell>
+            <Table.HeadCell>Administrador</Table.HeadCell>
+            <Table.HeadCell>
+              <span className="sr-only">Edit</span>
+            </Table.HeadCell>
+          </Table.Head>
+          <Table.Body className="divide-y">
+            {usersList.map((user) => (
+              <Table.Row
+                key={user[0]}
+                className="bg-white dark:border-gray-700 dark:bg-gray-800"
+              >
+                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                  {user[0]}
+                </Table.Cell>
+                <Table.Cell>{user[1]}</Table.Cell>
+                <Table.Cell>{user[3]}</Table.Cell>
+                <Table.Cell>{user[4]}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
       ) : (
         <p>Loading...</p>
       )}

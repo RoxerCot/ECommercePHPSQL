@@ -61,14 +61,14 @@ const MangasAdmin = () => {
   }, []);
 
   return (
-    <>
-      <div className="w-screen flex flex-col pr-8 mt-8">
-        <div className="mb-2 block self-end">
+    <div className="">
+      <div className="">
+        <div className="">
           <Label htmlFor="countries" value="Items por pagina" />
         </div>
         <Select
           id="countries"
-          className="w-18 self-end"
+          className="w-18 self-start"
           onChange={handleSelect}
           required
         >
@@ -89,14 +89,14 @@ const MangasAdmin = () => {
       ) : (
         <p>Loading...</p>
       )}
-      <div className="flex overflow-x-auto sm:justify-center mt-8 mb-10">
+      <div className="flex sm:justify-center mt-8 mb-10">
         <Pagination
           currentPage={totalPages < currentPage ? totalPages : currentPage}
           totalPages={totalPages}
           onPageChange={onPageChange}
         />
       </div>
-    </>
+    </div>
   );
 };
 export default MangasAdmin;
