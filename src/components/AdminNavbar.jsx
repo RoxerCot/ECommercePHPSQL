@@ -90,7 +90,16 @@ const AdminNavbar = () => {
             >
               Nuevo Usuario
             </NavLink>
-            <Button onClick={handleLogout}>Log Out</Button>
+            <NavLink
+              to="/admin/nuevousuario"
+              className="flex items-center justify-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-70
+            active:bg-gray-100 active:dark:bg-gray-700"
+            >
+              Carritos
+            </NavLink>
+            <div className="flex items-center justify-center">
+              <Button onClick={handleLogout}>Log Out</Button>
+            </div>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>

@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { ListGroup, Table } from "flowbite-react";
+import { Button, ListGroup, Table } from "flowbite-react";
 import { useUserContext } from "../context/UserContext";
+import { Link } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const UserList = () => {
-  const { usersList, setUsersList } = useUserContext();
+  const { usersList, setUsersList, setPickedUser } = useUserContext();
   var dataDisplay = [];
   /** Aqui transformo un objetto a un array */
   function ObjectToArray(object, array) {
@@ -30,6 +31,11 @@ const UserList = () => {
     fetchData();
     return () => {};
   }, []);
+
+  function handleUserClick(usr) {
+    setPickedUser(usr);
+  }
+
   return (
     <div className="flex flex-col w-screen">
       <div className="flex justify-center items-center">
@@ -42,9 +48,6 @@ const UserList = () => {
             <Table.HeadCell>Usuario</Table.HeadCell>
             <Table.HeadCell>Sesion activa</Table.HeadCell>
             <Table.HeadCell>Administrador</Table.HeadCell>
-            <Table.HeadCell>
-              <span className="sr-only">Edit</span>
-            </Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
             {usersList.map((user) => (
@@ -55,7 +58,14 @@ const UserList = () => {
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                   {user[0]}
                 </Table.Cell>
-                <Table.Cell>{user[1]}</Table.Cell>
+                <Table.Cell className="hover:underline ">
+                  <Link
+                    to="/admin/usuario"
+                    onClick={() => handleUserClick(user)}
+                  >
+                    {user[1]}
+                  </Link>
+                </Table.Cell>
                 <Table.Cell>{user[3]}</Table.Cell>
                 <Table.Cell>{user[4]}</Table.Cell>
               </Table.Row>

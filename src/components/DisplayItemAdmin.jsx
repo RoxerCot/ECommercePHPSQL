@@ -158,6 +158,20 @@ const DisplayItemAdmin = ({ props }) => {
       console.log(error);
     }
   };
+
+  const handleBorrar = async (e) => {
+    e.preventDefault();
+    try {
+      var data = new FormData();
+      data.append("METHOD", "DELITEM");
+      data.append("itemId", item[0]);
+      console.log(data);
+      ModItem(URL, data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const ModItem = async (url, data) => {
     const resp = await fetch(url, {
       method: "POST",
@@ -287,7 +301,7 @@ const DisplayItemAdmin = ({ props }) => {
         </Button>
       </div>
       <div className="flex flex-row space-x-2 items-center justify-center w-3/4">
-        <Button>Borrar Item</Button>
+        <Button onClick={handleBorrar}>Borrar Item</Button>
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ export default function UserContextProvider({ children }) {
   const [admin, setAdmin] = useState(0);
   const [usersList, setUsersList] = useState(0);
   const [nameUser, setNameUser] = useState(0);
+  const [pickedUser, setPickedUser] = useState(0);
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("Usuario"))) {
@@ -53,6 +54,8 @@ export default function UserContextProvider({ children }) {
         admin,
         nameUser,
         usersList,
+        pickedUser,
+        setPickedUser,
         setUsersList,
         setNameUser,
         setAdmin,

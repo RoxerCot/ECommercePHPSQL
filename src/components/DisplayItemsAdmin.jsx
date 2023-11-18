@@ -10,34 +10,17 @@ const DisplayItemsAdmin = ({ props }) => {
   const [limit, setLimit] = useState(false);
   const [index, setIndex] = useState(0);
   const navigate = useNavigate();
+
   useEffect(() => {
     var x = number * (page - 1);
     setIndex(x);
     setLimit(parseInt(x) + parseInt(number));
   }, [number, page]);
+
   function handleItemClick(itm) {
     setProducto(itm);
     console.log(" Item: ", itm);
-    // navigate("/productos/item");
   }
-  const handleAddItem = async (itemId) => {
-    try {
-      var data = new FormData();
-      data.append("METHOD", "ADDITEMCART");
-      data.append("userId", userId);
-      data.append("itemId", itemId);
-      AddItem(URL, data);
-    } catch (error) {
-      console.error("Error Adding item:", error);
-    }
-  };
-
-  const AddItem = async (url, data) => {
-    const resp = await fetch(url, {
-      method: "POST",
-      body: data,
-    }).then(() => navigate("/"));
-  };
 
   return (
     <div className="">
