@@ -23,20 +23,18 @@ const DisplayItemsAdmin = ({ props }) => {
   }
 
   return (
-    <div className="">
+    <div className="flex flex-row flex-wrap">
       {items.slice(index, limit).map((Item) => (
-        <div className="" key={Item[0]}>
-          <Card key={Item[0]} imgAlt="" className="">
-            <img src={Item[3]} className="h-32 w-40 " />
-            <Link
-              to="/admin/item"
-              className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white w-40"
-              onClick={() => handleItemClick(Item)}
-            >
-              <p>{Item[1]}</p>
-            </Link>
-          </Card>
-        </div>
+        <Card key={Item[0]} imgAlt="" className="m-2">
+          <img src={Item[3]} className="h-32 w-40 " />
+          <Link
+            to="/admin/item"
+            className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white w-40"
+            onClick={() => handleItemClick(Item)}
+          >
+            <p>{Item[1]}</p>
+          </Link>
+        </Card>
       ))}
     </div>
   );

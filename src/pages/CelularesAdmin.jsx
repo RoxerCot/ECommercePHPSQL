@@ -61,14 +61,12 @@ const CelularesAdmin = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="w-fit">
       <div className="">
-        <div className="">
-          <Label htmlFor="countries" value="Items por pagina" />
-        </div>
+        <Label htmlFor="countries" value="Items por pagina" />
         <Select
           id="countries"
-          className="w-18 self-start"
+          className="w-3/4 self-start m-2"
           onChange={handleSelect}
           required
         >

@@ -24,6 +24,8 @@ import ItemAdmin from "../pages/ItemAdmin";
 import NuevoItem from "../pages/NuevoItem";
 import NuevoUsuario from "../pages/NuevoUsuario";
 import UsuarioAdmin from "../pages/UsuarioAdmin";
+import CarritosAdmin from "../pages/CarritosAdmin";
+import CarritoAdmin from "../pages/CarritoAdmin";
 
 export const router = createBrowserRouter([
   {
@@ -122,6 +124,14 @@ export const router = createBrowserRouter([
               {
                 path: "/admin/usuario",
                 element: <UsuarioAdmin />,
+              },
+              {
+                path: "/admin/carritos",
+                element: <CarritosAdmin />,
+              },
+              {
+                path: "/admin/carrito",
+                element: <CarritoAdmin />,
               },
             ],
           },

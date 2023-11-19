@@ -29,7 +29,7 @@ const MangasAdmin = () => {
   const handleSelect = (e) => {
     setNumberItems(e.target.value);
     setTotalpages(Math.ceil(arrayItems.length / e.target.value));
-    navigate("/admin/celulares");
+    navigate("/admin/mangas");
   };
 
   // useEffect(() => {}, []);
@@ -68,7 +68,7 @@ const MangasAdmin = () => {
         </div>
         <Select
           id="countries"
-          className="w-18 self-start"
+          className="w-3/4 self-start m-2"
           onChange={handleSelect}
           required
         >
