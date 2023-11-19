@@ -1,11 +1,12 @@
 import { Button, Label, Table } from "flowbite-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const DisplayCarrito = ({ props }) => {
   const { cart } = props;
+  const [total, setTotal] = useState(0);
   const { pickedcarrito, setPickedCarrito } = useUserContext();
   const navigate = useNavigate();
   var dataDisplay = [];
@@ -16,6 +17,14 @@ const DisplayCarrito = ({ props }) => {
       array.push(Object.values(object[i]));
     }
     return array;
+  }
+
+  function Total(dataDisplay) {
+    var t = 0;
+    for (let index = 0; index < dataDisplay.length; index++) {
+      t += parseInt(dataDisplay[index][1]);
+    }
+    return t;
   }
 
   useEffect(() => {
@@ -30,6 +39,7 @@ const DisplayCarrito = ({ props }) => {
       });
       const resp_json = await resp.json();
       dataDisplay = ObjectToArray(resp_json, dataDisplay);
+      setTotal(Total(dataDisplay));
       setPickedCarrito(ObjectToArray(resp_json, pickedcarrito));
     };
     fetchData();
@@ -38,7 +48,6 @@ const DisplayCarrito = ({ props }) => {
   return (
     <div className="flex flex-col mt-4">
       <div className="flex justify-start items-start">
-        {console.log(pickedcarrito)}
         <div className="w-fit space-y-4">
           {pickedcarrito ? (
             <Table className="w-fit" hoverable>
@@ -58,6 +67,10 @@ const DisplayCarrito = ({ props }) => {
                     <Table.Cell className="">{item[1]}</Table.Cell>
                   </Table.Row>
                 ))}
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell>TOTAL</Table.Cell>
+                  <Table.Cell>{total}</Table.Cell>
+                </Table.Row>
               </Table.Body>
             </Table>
           ) : (
