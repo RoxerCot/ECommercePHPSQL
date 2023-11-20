@@ -7,7 +7,7 @@ const URL = "http://localhost/BackEnd2/Api.php";
 const DisplayCarritos = () => {
   const { carritos, setCarritos, setCarrito, carrito } = useUserContext();
   const [idCart, setIdCart] = useState();
-  const [idPayedCart, setIdPayedCart] = useState();
+  const [payedCart, setPayedCart] = useState();
   const navigate = useNavigate();
   var dataDisplay = [];
   /** Aqui transformo un objetto a un array */
@@ -57,19 +57,22 @@ const DisplayCarritos = () => {
     const fetchData = async () => {
       var data = new FormData();
       data.append("METHOD", "PAYEDCART");
-      data.append("cartId", idPayedCart);
+      data.append("cartId", payedCart[0]);
+      data.append("cartItems", payedCart[1]);
+      data.append("cartUsuario", payedCart[3]);
+      data.append("cartCantidades", payedCart[2]);
       const resp = await fetch(URL, {
         method: "POST",
         body: data,
       }).then(() => navigate(0));
     };
 
-    if (idPayedCart != undefined) {
+    if (payedCart != undefined) {
       fetchData();
     }
 
     return () => {};
-  }, [idPayedCart]);
+  }, [payedCart]);
 
   function handleCartClick(crt) {
     setCarrito(crt);
@@ -78,7 +81,7 @@ const DisplayCarritos = () => {
     setIdCart(crt);
   }
   function handlePayClick(crt) {
-    setIdPayedCart(crt);
+    setPayedCart(crt);
   }
   return (
     <div className="flex flex-col w-screen">
@@ -109,7 +112,7 @@ const DisplayCarritos = () => {
                 </Table.Cell>
                 <Table.Cell className="">{carrito[3]}</Table.Cell>
                 <Table.Cell
-                  onClick={() => handlePayClick(carrito[0])}
+                  onClick={() => handlePayClick(carrito)}
                   className=""
                 >
                   <Button>Pagado</Button>

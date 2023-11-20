@@ -20,6 +20,7 @@ export default function UserContextProvider({ children }) {
   const [carritos, setCarritos] = useState(0);
   const [carrito, setCarrito] = useState(0);
   const [pickedcarrito, setPickedCarrito] = useState(0);
+  const [sale, setSale] = useState();
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("Usuario"))) {
       const fetchData = async () => {
@@ -60,6 +61,8 @@ export default function UserContextProvider({ children }) {
         carritos,
         carrito,
         pickedcarrito,
+        sale,
+        setSale,
         setPickedCarrito,
         setCarrito,
         setCarritos,

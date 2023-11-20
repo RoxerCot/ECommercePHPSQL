@@ -28,6 +28,8 @@ import CarritosAdmin from "../pages/CarritosAdmin";
 import CarritoAdmin from "../pages/CarritoAdmin";
 import CambiarUsuario from "../pages/CambiarUsuario";
 import CambiarPswd from "../pages/CambiarPswd";
+import VentasAdmin from "../pages/VentasAdmin";
+import VentaAdmin from "../pages/VentaAdmin";
 
 export const router = createBrowserRouter([
   {
@@ -142,6 +144,14 @@ export const router = createBrowserRouter([
               {
                 path: "/admin/carrito",
                 element: <CarritoAdmin />,
+              },
+              {
+                path: "/admin/ventas",
+                element: <VentasAdmin />,
+              },
+              {
+                path: "/admin/venta",
+                element: <VentaAdmin />,
               },
             ],
           },

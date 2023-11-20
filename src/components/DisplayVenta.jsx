@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Api.php";
 
-const DisplayCarrito = ({ props }) => {
-  const { cart } = props;
+const DisplayVenta = ({ props }) => {
+  const { sale } = props;
   const [total, setTotal] = useState(0);
   const { pickedcarrito, setPickedCarrito } = useUserContext();
   const navigate = useNavigate();
@@ -31,16 +31,15 @@ const DisplayCarrito = ({ props }) => {
     const fetchData = async () => {
       setPickedCarrito(false);
       var data = new FormData();
-      data.append("METHOD", "GETCARTPICKED");
-      data.append("itemsId", cart[1]);
-      data.append("cantidades", cart[2]);
+      data.append("METHOD", "GETSALEPICKED");
+      data.append("itemsId", sale[1]);
+      data.append("cantidades", sale[2]);
       const resp = await fetch(URL, {
         method: "POST",
         body: data,
       });
       const resp_json = await resp.json();
       dataDisplay = ObjectToArray(resp_json, dataDisplay);
-      console.log(dataDisplay);
       setTotal(Total(dataDisplay));
       setPickedCarrito(ObjectToArray(resp_json, pickedcarrito));
     };
@@ -85,4 +84,4 @@ const DisplayCarrito = ({ props }) => {
     </div>
   );
 };
-export default DisplayCarrito;
+export default DisplayVenta;
