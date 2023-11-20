@@ -25,8 +25,11 @@ const AvatarDropDown = () => {
   const handleCart = () => {
     navigate("/productos/carrito");
   };
-  const handleAdmin = () => {
-    navigate("/productos/admin");
+  const handleChangeUser = () => {
+    navigate("/productos/cambiarusuario");
+  };
+  const handleChangePswd = () => {
+    navigate("/productos/cambiarpswd");
   };
   return (
     <Dropdown
@@ -51,6 +54,12 @@ const AvatarDropDown = () => {
           <Dropdown.Item onClick={handleCart}>Carrito</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item onClick={handleDelete}>Borrar Usuario</Dropdown.Item>
+          <Dropdown.Item onClick={handleChangePswd}>
+            Cambiar Contraseña
+          </Dropdown.Item>
+          <Dropdown.Item onClick={handleChangeUser}>
+            Cambiar Nombre
+          </Dropdown.Item>
         </>
       )}
     </Dropdown>

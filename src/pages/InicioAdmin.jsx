@@ -1,4 +1,4 @@
-import UserList from "../components/UsersList";
+import UserList from "../components/DisplayUsers";
 const InicioAdmin = () => {
   return <UserList />;
 };

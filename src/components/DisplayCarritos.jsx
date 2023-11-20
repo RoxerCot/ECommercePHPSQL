@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, ListGroup, Table } from "flowbite-react";
 import { useUserContext } from "../context/UserContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const DisplayCarritos = () => {
-  const { carritos, setCarritos, setCarrito } = useUserContext();
+  const { carritos, setCarritos, setCarrito, carrito } = useUserContext();
+  const [idCart, setIdCart] = useState();
+  const [idPayedCart, setIdPayedCart] = useState();
+  const navigate = useNavigate();
   var dataDisplay = [];
   /** Aqui transformo un objetto a un array */
   function ObjectToArray(object, array) {
@@ -32,8 +35,50 @@ const DisplayCarritos = () => {
     return () => {};
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      var data = new FormData();
+      data.append("METHOD", "DELCART");
+      data.append("cartId", idCart);
+      const resp = await fetch(URL, {
+        method: "POST",
+        body: data,
+      }).then(() => navigate(0));
+    };
+
+    if (idCart != undefined) {
+      fetchData();
+    }
+
+    return () => {};
+  }, [idCart]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      var data = new FormData();
+      data.append("METHOD", "PAYEDCART");
+      data.append("cartId", idPayedCart);
+      const resp = await fetch(URL, {
+        method: "POST",
+        body: data,
+      }).then(() => navigate(0));
+    };
+
+    if (idPayedCart != undefined) {
+      fetchData();
+    }
+
+    return () => {};
+  }, [idPayedCart]);
+
   function handleCartClick(crt) {
     setCarrito(crt);
+  }
+  function handleDeleteClick(crt) {
+    setIdCart(crt);
+  }
+  function handlePayClick(crt) {
+    setIdPayedCart(crt);
   }
   return (
     <div className="flex flex-col w-screen">
@@ -63,11 +108,16 @@ const DisplayCarritos = () => {
                   </Link>
                 </Table.Cell>
                 <Table.Cell className="">{carrito[3]}</Table.Cell>
-                <Table.Cell className="">
+                <Table.Cell
+                  onClick={() => handlePayClick(carrito[0])}
+                  className=""
+                >
                   <Button>Pagado</Button>
                 </Table.Cell>
                 <Table.Cell className="">
-                  <Button>Borrar</Button>
+                  <Button onClick={() => handleDeleteClick(carrito[0])}>
+                    Borrar
+                  </Button>
                 </Table.Cell>
               </Table.Row>
             ))}

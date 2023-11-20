@@ -1,7 +1,7 @@
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import AdminNavbar from "../components/AdminNavbar";
-import ComponentNavbar from "../components/ComponentNavbar";
+import AdminNavbar from "../components/AdminSidebar";
+import ComponentNavbar from "../components/UserNavbar";
 
 const AdminLayout = () => {
   const { admin } = useUserContext();

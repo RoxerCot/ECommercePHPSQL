@@ -26,6 +26,8 @@ import NuevoUsuario from "../pages/NuevoUsuario";
 import UsuarioAdmin from "../pages/UsuarioAdmin";
 import CarritosAdmin from "../pages/CarritosAdmin";
 import CarritoAdmin from "../pages/CarritoAdmin";
+import CambiarUsuario from "../pages/CambiarUsuario";
+import CambiarPswd from "../pages/CambiarPswd";
 
 export const router = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ export const router = createBrowserRouter([
               {
                 path: "/productos/compra",
                 element: <Compra />,
+              },
+              {
+                path: "/productos/cambiarusuario",
+                element: <CambiarUsuario />,
+              },
+              {
+                path: "/productos/cambiarpswd",
+                element: <CambiarPswd />,
               },
             ],
           },
