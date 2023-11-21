@@ -22,6 +22,7 @@ export default function UserContextProvider({ children }) {
   const [pickedcarrito, setPickedCarrito] = useState(0);
   const [sale, setSale] = useState();
   useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem("Usuario")));
     if (JSON.parse(localStorage.getItem("Usuario"))) {
       const fetchData = async () => {
         var data = new FormData();
