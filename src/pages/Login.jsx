@@ -12,7 +12,7 @@ const Login = () => {
   const handleRegister = () => {
     navigate("/registro");
   };
-  /** */
+  /** User check */
   useEffect(() => {
     if (user) {
       if (admin == 1) {
@@ -30,7 +30,7 @@ const Login = () => {
       <div className="basis-1/2 object-fill max-w-max">
         <img src="/images/Login_picture.jpg" className="h-screen " />
       </div>
-      <div className="basis-1/2 flex flex-col items-center pt-32">
+      <div className="basis-1/2 flex flex-col items-center pt-12">
         <LogInForm className="" />
         <Button className="mt-12" onClick={handleRegister}>
           Registro
