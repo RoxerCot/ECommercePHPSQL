@@ -15,10 +15,10 @@ const PrivateLayout = () => {
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
             <div>
               <Footer.Brand
-                href="https://flowbite.com"
-                src="/images/Logo.png"
-                alt="Flowbite Logo"
-                name="E-Commerce"
+                href="/"
+                src="/images/CIERDCARS_LOGO.png"
+                alt="Ciber D Cars Logo"
+                name="Ciber D Cars"
               />
             </div>
             <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

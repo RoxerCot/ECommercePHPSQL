@@ -1,8 +1,9 @@
-import { Alert, Button, Label, TextInput } from "flowbite-react";
+import { Alert, Button, TextInput } from "flowbite-react";
 import { useUserContext } from "../context/UserContext";
 import { useState } from "react";
 import { HiInformationCircle } from "react-icons/hi";
 const URL = "http://localhost/BackEnd2/Api.php";
+
 const CambiarPswd = () => {
   const { userId } = useUserContext();
   const [alert, setAlert] = useState("Bienvenida");
@@ -24,16 +25,16 @@ const CambiarPswd = () => {
         body: data,
       });
       const response_json = await resp.json();
-      if (response_json["Mensaje"] == "Password Changed") {
-        setAlert(response_json["Mensaje"]);
-      } else if (response_json["Mensaje"] == "Password Not Matching") {
-        setAlert(response_json["Mensaje"]);
-      } else if (response_json["Mensaje"] == "Wrong Password") {
-        setAlert(response_json["Mensaje"]);
+
+      if (
+        response_json["Mensaje"] == "Bienvenida" ||
+        response_json["Mensaje"] == "Password Changed"
+      ) {
+        setPswd("");
+        setNewPswd("");
+        setNewPswdConf("");
       }
-      setPswd("");
-      setNewPswd("");
-      setNewPswdConf("");
+      setAlert(response_json["Mensaje"]);
     } catch (error) {
       console.log(error);
     }

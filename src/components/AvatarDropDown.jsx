@@ -57,8 +57,8 @@ const AvatarDropDown = () => {
         {console.log(nameUser)}
         <Dropdown.Header className="">
           <span className="block text-sm">{admin == 1 ? "Admin" : "User"}</span>
+          <span className="block text-sm">{nameUser}</span>
         </Dropdown.Header>
-        <Dropdown.Item>{nameUser}</Dropdown.Item>
         {admin == 1 ? null : (
           <>
             <Dropdown.Item onClick={handleCart}>Carrito</Dropdown.Item>

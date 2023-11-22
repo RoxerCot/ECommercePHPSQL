@@ -27,9 +27,13 @@ const ComponentNavbar = () => {
     <>
       <Navbar fluid rounded>
         <Navbar.Brand href="/">
-          <img alt="Logo" className="mr-3 h-6 sm:h-9" src="/images/Logo.png" />
+          <img
+            alt="Logo"
+            className="mr-3 h-6 sm:h-9 object-fill"
+            src="/images/CIERDCARS_LOGO.png"
+          />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            E-Commerce
+            Ciber D Cars
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
