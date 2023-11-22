@@ -32,7 +32,7 @@ const CambiarUsuario = () => {
   return (
     <form
       onSubmit={handleNuevoUsuario}
-      className="flex flex-col mt-8 space-y-4 justify-center items-center"
+      className="flex flex-col mt-8 mb-8 space-y-4 justify-center items-center"
     >
       <TextInput placeholder="Ingresa Usuario Actual"></TextInput>
       <TextInput placeholder="Ingresa Nuevo Usuario"></TextInput>

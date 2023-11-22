@@ -65,10 +65,12 @@ const Carrito = () => {
     navigate("/productos/compra");
   };
   return (
-    <div className="">
+    <div className="h-96">
       {productoCarrito ? (
         productoCarrito[0][0] === "N" ? (
-          <p>No hay items..</p>
+          <div className="h-full flex justify-center items-center">
+            <p className="">No hay carrito ..</p>
+          </div>
         ) : (
           <div className="w-screen flex flex-col justify-center items-center mt-8">
             {productoCarrito.map((Item) => (

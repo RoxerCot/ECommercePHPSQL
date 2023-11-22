@@ -10,8 +10,7 @@ import {
 } from "react-icons/hi";
 
 import { NavLink, useNavigate } from "react-router-dom";
-import AvatarDropDown from "./AvatarDropDown";
-const URL = "http://localhost/BackEnd2/Interface.php";
+const URL = "http://localhost/BackEnd2/Api.php";
 
 const AdminNavbar = () => {
   const navigate = useNavigate();

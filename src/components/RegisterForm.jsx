@@ -22,7 +22,6 @@ const RegisterForm = () => {
       data.append("METHOD", "REGISTER");
       data.append("usuario", refEmail.current.value);
       data.append("password", refPswd.current.value);
-      console.log(data);
       const resp = await fetch(URL, {
         method: "POST",
         body: data,
