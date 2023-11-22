@@ -13,6 +13,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const AdminNavbar = () => {
+  const customTheme = {
+    img: "mr-3 h-12",
+  };
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -34,9 +37,14 @@ const AdminNavbar = () => {
   };
   return (
     <div className="">
-      <Sidebar aria-label="Sidebar with logo branding example" className="">
-        <Sidebar.Logo href="#" img="" imgAlt="Flowbite logo">
-          Flowbite
+      <Sidebar aria-label="Sidebar with logo branding example">
+        <Sidebar.Logo
+          theme={customTheme}
+          href="/"
+          img="/images/CIERDCARS_LOGO.png"
+          imgAlt="Ciber D Cars logo"
+        >
+          Ciber D Cars
         </Sidebar.Logo>
         <Sidebar.Items>
           <Sidebar.ItemGroup>

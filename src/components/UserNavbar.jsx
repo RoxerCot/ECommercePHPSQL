@@ -29,7 +29,7 @@ const ComponentNavbar = () => {
         <Navbar.Brand href="/">
           <img
             alt="Logo"
-            className="mr-3 h-6 sm:h-9 object-fill"
+            className="mr-3 h-12 object-fill"
             src="/images/CIERDCARS_LOGO.png"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">

@@ -3,13 +3,11 @@ import { useUserContext } from "../context/UserContext";
 const UsuarioAdmin = () => {
   const { pickedUser } = useUserContext();
   return (
-    <div>
-      <DisplayUser
-        props={{
-          user: pickedUser,
-        }}
-      />
-    </div>
+    <DisplayUser
+      props={{
+        user: pickedUser,
+      }}
+    />
   );
 };
 export default UsuarioAdmin;
