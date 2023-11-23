@@ -39,32 +39,37 @@ const DisplayVentas = () => {
   }
   return (
     <div className="flex flex-col w-screen">
-      <div className="flex justify-center items-center">
-        <p>CartsList</p>
+      <div className=" flex justify-center items-center mt-12">
+        <p className="text-xl font-bold">Sales List</p>
       </div>
-      {sales ? (
-        <Table className="w-fit" hoverable>
-          <Table.Head>
-            <Table.HeadCell>Id Venta</Table.HeadCell>
-          </Table.Head>
-          <Table.Body className="divide-y">
-            {sales.map((sale) => (
-              <Table.Row
-                key={sale[0]}
-                className="bg-white dark:border-gray-700 dark:bg-gray-800"
-              >
-                <Table.Cell className="hover:underline whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  <Link to="/admin/venta" onClick={() => handleSaleClick(sale)}>
-                    {sale[0]}
-                  </Link>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className=" flex justify-center items-center  mt-12">
+        {sales ? (
+          <Table className="w-fit" hoverable>
+            <Table.Head>
+              <Table.HeadCell>Id Venta</Table.HeadCell>
+            </Table.Head>
+            <Table.Body className="divide-y">
+              {sales.map((sale) => (
+                <Table.Row
+                  key={sale[0]}
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                >
+                  <Table.Cell className="hover:underline whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    <Link
+                      to="/admin/venta"
+                      onClick={() => handleSaleClick(sale)}
+                    >
+                      {sale[0]}
+                    </Link>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };

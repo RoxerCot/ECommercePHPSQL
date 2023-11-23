@@ -32,33 +32,37 @@ const NuevoUsuario = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col h-screen mt-12 space-y-12 items-center content-start w-screen"
+      className="flex flex-col h-screen mt-4 space-y-6 items-center justify-center w-screen"
     >
-      <div className="flex flex-row space-x-2 items-center w-3/4">
+      <div className="flex  space-x-2 items-center justify-center w-full mb-12">
         <div className="basis-1/3">
-          <Label>email:</Label>
+          <Label className="text-xl font-bold">Inserte Nuevo Usuario</Label>
+        </div>
+      </div>
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
+        <div className="basis-1/3">
+          <Label>Email:</Label>
         </div>
         <TextInput ref={refEmail} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Contraseña:</Label>
         </div>
         <TextInput ref={refPswd} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Repetir Contraseña:</Label>
         </div>
         <TextInput className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Admin:</Label>
         </div>
-
         <ToggleSwitch
-          className="basis-1/2"
+          className="basis-1/3"
           checked={switch1}
           onChange={setSwitch1}
         />

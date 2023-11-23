@@ -45,20 +45,25 @@ const NuevoItem = () => {
     }).then(() => navigate(0));
   };
   return (
-    <div className="flex flex-col h-screen mt-12 space-y-12 items-center content-start w-screen">
-      <div className="flex flex-row space-x-2 items-center w-full">
+    <div className="flex flex-col h-screen mt-4 space-y-6 items-center justify-center w-screen">
+      <div className="flex  space-x-2 items-center justify-center w-full mb-12">
+        <div className="basis-1/3">
+          <Label className="text-xl font-bold">Inserte Nuevo Item</Label>
+        </div>
+      </div>
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Nombre:</Label>
         </div>
         <TextInput ref={refNombre} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Descripcion:</Label>
         </div>
         <TextInput ref={refDescripcion} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Ubicacion de foto:</Label>
         </div>
@@ -68,25 +73,25 @@ const NuevoItem = () => {
           className="basis-1/3"
         ></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Precio:</Label>
         </div>
         <TextInput ref={refPrecio} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center  w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center  w-full">
         <div className="basis-1/3">
           <Label>Stock:</Label>
         </div>
         <TextInput ref={refStock} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Marca:</Label>
         </div>
         <TextInput ref={refMarca} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Categoria:</Label>
         </div>
@@ -104,22 +109,24 @@ const NuevoItem = () => {
           <option value="Manga">Manga</option>
         </Select>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Modelo:</Label>
         </div>
         <TextInput ref={refModelo} className="basis-1/3"></TextInput>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-full">
+      <div className="flex flex-row space-x-2 items-center justify-center w-full">
         <div className="basis-1/3">
           <Label>Peso:</Label>
         </div>
         <TextInput ref={refPeso} className="basis-1/3"></TextInput>
       </div>
       <div className="flex flex-row space-x-2 items-center justify-center w-full">
-        <Label className="basis-1/2"> Disponibilidad:</Label>
+        <div className="basis-1/3">
+          <Label>Disponibilidad:</Label>
+        </div>
         <ToggleSwitch
-          className="basis-1/2"
+          className="basis-1/3"
           checked={switch1}
           onChange={setSwitch1}
         />

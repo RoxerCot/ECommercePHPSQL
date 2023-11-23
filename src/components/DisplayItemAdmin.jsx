@@ -201,7 +201,7 @@ const DisplayItemAdmin = ({ props }) => {
     return route;
   }
   return (
-    <div className="flex flex-col h-screen  space-y-12 items-center content-start w-screen mt-12">
+    <div className="flex flex-col h-fit space-y-12 items-center content-start w-screen mt-12 pb-12">
       <div className="flex self-start pl-2">
         <Button
           onClick={() => {
@@ -332,7 +332,7 @@ const DisplayItemAdmin = ({ props }) => {
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-4 items-center justify-center w-3/4">
+      <div className="flex flex-row space-x-4 items-center justify-center w-3/4 ">
         <Button onClick={handleBorrar}>Borrar Item</Button>
       </div>
     </div>

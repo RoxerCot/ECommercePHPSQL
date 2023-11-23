@@ -24,8 +24,8 @@ const ComponentNavbar = () => {
     }).then(() => navigate(0));
   };
   return (
-    <>
-      <Navbar fluid rounded>
+    <div className="sticky top-0 z-50">
+      <Navbar className=" w-full top-0 " fluid rounded>
         <Navbar.Brand href="/">
           <img
             alt="Logo"
@@ -51,7 +51,7 @@ const ComponentNavbar = () => {
           <NavLink to="/productos/mangas">Mangas</NavLink>
         </Navbar.Collapse>
       </Navbar>
-    </>
+    </div>
   );
 };
 export default ComponentNavbar;

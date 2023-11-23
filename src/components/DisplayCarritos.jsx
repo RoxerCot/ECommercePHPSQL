@@ -84,51 +84,53 @@ const DisplayCarritos = () => {
     setPayedCart(crt);
   }
   return (
-    <div className="flex flex-col w-screen">
-      <div className="flex justify-center items-center">
-        <p>CartsList</p>
+    <div className="flex flex-col w-screen ">
+      <div className=" flex justify-center items-center mt-12">
+        <p className="text-xl font-bold">Carts List</p>
       </div>
-      {carritos ? (
-        <Table className="w-fit" hoverable>
-          <Table.Head>
-            <Table.HeadCell>Id Carrito</Table.HeadCell>
-            <Table.HeadCell>Id Usuario</Table.HeadCell>
-            <Table.HeadCell>Pagado?</Table.HeadCell>
-            <Table.HeadCell>Borrar?</Table.HeadCell>
-          </Table.Head>
-          <Table.Body className="divide-y">
-            {carritos.map((carrito) => (
-              <Table.Row
-                key={carrito[0]}
-                className="bg-white dark:border-gray-700 dark:bg-gray-800"
-              >
-                <Table.Cell className="hover:underline whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  <Link
-                    to="/admin/carrito"
-                    onClick={() => handleCartClick(carrito)}
-                  >
-                    {carrito[0]}
-                  </Link>
-                </Table.Cell>
-                <Table.Cell className="">{carrito[3]}</Table.Cell>
-                <Table.Cell
-                  onClick={() => handlePayClick(carrito)}
-                  className=""
+      <div className=" flex justify-center items-center  mt-12">
+        {carritos ? (
+          <Table className="w-fit" hoverable>
+            <Table.Head>
+              <Table.HeadCell>Id Carrito</Table.HeadCell>
+              <Table.HeadCell>Id Usuario</Table.HeadCell>
+              <Table.HeadCell>Pagado?</Table.HeadCell>
+              <Table.HeadCell>Borrar?</Table.HeadCell>
+            </Table.Head>
+            <Table.Body className="divide-y">
+              {carritos.map((carrito) => (
+                <Table.Row
+                  key={carrito[0]}
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
                 >
-                  <Button>Pagado</Button>
-                </Table.Cell>
-                <Table.Cell className="">
-                  <Button onClick={() => handleDeleteClick(carrito[0])}>
-                    Borrar
-                  </Button>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      ) : (
-        <p>Loading...</p>
-      )}
+                  <Table.Cell className="hover:underline whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    <Link
+                      to="/admin/carrito"
+                      onClick={() => handleCartClick(carrito)}
+                    >
+                      {carrito[0]}
+                    </Link>
+                  </Table.Cell>
+                  <Table.Cell className="">{carrito[3]}</Table.Cell>
+                  <Table.Cell
+                    onClick={() => handlePayClick(carrito)}
+                    className=""
+                  >
+                    <Button>Pagado</Button>
+                  </Table.Cell>
+                  <Table.Cell className="">
+                    <Button onClick={() => handleDeleteClick(carrito[0])}>
+                      Borrar
+                    </Button>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };

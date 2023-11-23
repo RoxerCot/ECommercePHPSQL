@@ -4,13 +4,11 @@ import { useUserContext } from "../context/UserContext";
 const VentaAdmin = () => {
   const { sale } = useUserContext();
   return (
-    <div>
-      <DisplayVenta
-        props={{
-          sale: sale,
-        }}
-      />
-    </div>
+    <DisplayVenta
+      props={{
+        sale: sale,
+      }}
+    />
   );
 };
 export default VentaAdmin;

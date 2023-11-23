@@ -3,13 +3,11 @@ import { useUserContext } from "../context/UserContext";
 const CarritoAdmin = () => {
   const { carrito } = useUserContext();
   return (
-    <div>
-      <DisplayCarrito
-        props={{
-          cart: carrito,
-        }}
-      />
-    </div>
+    <DisplayCarrito
+      props={{
+        cart: carrito,
+      }}
+    />
   );
 };
 export default CarritoAdmin;

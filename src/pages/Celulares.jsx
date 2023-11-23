@@ -95,7 +95,7 @@ const Celulares = () => {
   }, [search]);
 
   return (
-    <>
+    <div className="">
       <div className="w-screen flex flex-col pr-8 mt-8">
         {/**Seach Bar */}
         <form className="w-3/4 self-center place-self-center">
@@ -174,7 +174,7 @@ const Celulares = () => {
           onPageChange={onPageChange}
         />
       </div>
-    </>
+    </div>
   );
 };
 export default Celulares;

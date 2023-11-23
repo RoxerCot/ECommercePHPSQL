@@ -30,7 +30,7 @@ const AdminNavbar = () => {
     }).then(() => navigate(0));
   };
   return (
-    <div className="">
+    <div className="h-screen sticky top-0">
       <Sidebar aria-label="Sidebar with logo branding example">
         <Sidebar.Logo
           theme={customTheme}

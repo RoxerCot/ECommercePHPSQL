@@ -7,7 +7,7 @@ const PrivateLayout = () => {
   const { user } = useUserContext();
 
   return user ? (
-    <>
+    <div className="">
       <ComponentNavbar />
       <Outlet />
       <Footer container>
@@ -55,7 +55,7 @@ const PrivateLayout = () => {
           </div>
         </div>
       </Footer>
-    </>
+    </div>
   ) : (
     <Navigate to="/" />
   );
