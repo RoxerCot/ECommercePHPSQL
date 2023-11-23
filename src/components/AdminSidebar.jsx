@@ -1,18 +1,11 @@
 import { Button, Navbar, Sidebar } from "flowbite-react";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
 
 import { NavLink, useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const AdminNavbar = () => {
+  const { setAdmin } = useUserContext();
   const customTheme = {
     img: "mr-3 h-12",
   };
@@ -24,6 +17,7 @@ const AdminNavbar = () => {
       data.append("METHOD", "LOGOUT");
       localStorage.setItem("Usuario", null);
       logOut(URL, data);
+      setAdmin(0);
     } catch (error) {
       console.log(error);
     }

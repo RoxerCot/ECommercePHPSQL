@@ -1,6 +1,7 @@
 import { Button, Label, TextInput, Select, ToggleSwitch } from "flowbite-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const DisplayItemAdmin = ({ props }) => {
@@ -179,75 +180,104 @@ const DisplayItemAdmin = ({ props }) => {
     // .then(() => navigate(0))
   };
 
+  function handleReturn(categ) {
+    var route = "/admin";
+    switch (categ) {
+      case "Celular":
+        route = "/admin/celulares";
+        break;
+      case "Accesorio":
+        route = "/admin/accesorios";
+        break;
+      case "Tablet":
+        route = "/admin/tablets";
+        break;
+      case "Manga":
+        route = "/admin/mangas";
+        break;
+      default:
+        break;
+    }
+    return route;
+  }
   return (
-    <div className="flex flex-col h-screen mt-12 space-y-12 items-center content-start ">
-      <h1 className="font-bold ">{item[1]}</h1>
-      <img src={item[3]} className="object-contain h-32"></img>
-      <div className="flex flex-row">
+    <div className="flex flex-col h-screen  space-y-12 items-center content-start w-screen mt-12">
+      <div className="flex self-start pl-2">
+        <Button
+          onClick={() => {
+            navigate(handleReturn(item[7]));
+          }}
+        >
+          <FaArrowAltCircleLeft className="h-6 w-6" />
+        </Button>
+      </div>
+      <div className="flex flex-col space-y-4 ">
+        <h1 className="font-bold ">{item[1]}</h1>
+        <img src={item[3]} className="object-contain h-32"></img>
         <Label>ID: {item[0]}</Label>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Nombre:</Label>
           <Label>{item[1]}</Label>
         </div>
-        <TextInput ref={refNombre} className="basis-1/3"></TextInput>
-        <Button onClick={handleName} className="basis-1/3">
+        <TextInput ref={refNombre} className="basis-1/4"></TextInput>
+        <Button onClick={handleName} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Descripcion:</Label>
           <Label>{item[2]}</Label>
         </div>
-        <TextInput ref={refDescripcion} className="basis-1/3"></TextInput>
-        <Button onClick={handleDescripcion} className="basis-1/3">
+        <TextInput ref={refDescripcion} className="basis-1/4"></TextInput>
+        <Button onClick={handleDescripcion} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Ubicacion de foto:</Label>
           <Label>{item[3]}</Label>
         </div>
-        <TextInput ref={refFoto} className="basis-1/3"></TextInput>
-        <Button onClick={handleFoto} className="basis-1/3">
+        <TextInput ref={refFoto} className="basis-1/4"></TextInput>
+        <Button onClick={handleFoto} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Precio:</Label>
           <Label>{item[4]}</Label>
         </div>
-        <TextInput ref={refPrecio} className="basis-1/3"></TextInput>
-        <Button onClick={handlePrecio} className="basis-1/3">
+        <TextInput ref={refPrecio} className="basis-1/4"></TextInput>
+        <Button onClick={handlePrecio} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Stock:</Label>
           <Label>{item[5]}</Label>
         </div>
-        <TextInput ref={refStock} className="basis-1/3"></TextInput>
-        <Button onClick={handleStock} className="basis-1/3">
+        <TextInput ref={refStock} className="basis-1/4"></TextInput>
+        <Button onClick={handleStock} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Marca:</Label>
           <Label>{item[6]}</Label>
         </div>
-        <TextInput ref={refMarca} className="basis-1/3"></TextInput>
-        <Button onClick={handleMarca} className="basis-1/3">
+        <TextInput ref={refMarca} className="basis-1/4"></TextInput>
+        <Button onClick={handleMarca} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Categoria:</Label>
           <Label>{item[7]}</Label>
         </div>
@@ -255,7 +285,7 @@ const DisplayItemAdmin = ({ props }) => {
           onChange={(e) => {
             setSelectOption(e.target.value);
           }}
-          className="basis-1/3"
+          className="basis-1/4"
           id="countries"
           required
         >
@@ -264,42 +294,45 @@ const DisplayItemAdmin = ({ props }) => {
           <option value="Accesorio">Accesorio</option>
           <option value="Manga">Manga</option>
         </Select>
-        <Button onClick={handleCategoria} className="basis-1/3">
+        <Button onClick={handleCategoria} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Modelo:</Label>
           <Label>{item[8]}</Label>
         </div>
-        <TextInput ref={refModelo} className="basis-1/3"></TextInput>
-        <Button onClick={handleModelo} className="basis-1/3">
+        <TextInput ref={refModelo} className="basis-1/4"></TextInput>
+        <Button onClick={handleModelo} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center w-3/4">
-        <div className="flex flex-col basis-1/3">
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
           <Label>Peso:</Label>
           <Label>{item[8]}</Label>
         </div>
-        <TextInput ref={refPeso} className="basis-1/3"></TextInput>
-        <Button onClick={handlePeso} className="basis-1/3">
+        <TextInput ref={refPeso} className="basis-1/4"></TextInput>
+        <Button onClick={handlePeso} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center justify-center w-3/4">
-        <Label className="basis-1/2"> Disponibilidad: {item[10]}</Label>
+
+      <div className="flex flex-row space-x-4 items-center w-3/4">
+        <div className="flex flex-col basis-1/4">
+          <Label className="basis-1/4"> Disponibilidad: {item[10]}</Label>
+        </div>
         <ToggleSwitch
-          className="basis-1/2"
+          className="basis-1/4"
           checked={switch1}
           onChange={setSwitch1}
         />
-        <Button onClick={handleDisponibilidad} className="basis-1/3">
+        <Button onClick={handleDisponibilidad} className="basis-1/4">
           Cambiar
         </Button>
       </div>
-      <div className="flex flex-row space-x-2 items-center justify-center w-3/4">
+      <div className="flex flex-row space-x-4 items-center justify-center w-3/4">
         <Button onClick={handleBorrar}>Borrar Item</Button>
       </div>
     </div>

@@ -5,7 +5,7 @@ import ComponentNavbar from "../components/UserNavbar";
 
 const AdminLayout = () => {
   const { admin } = useUserContext();
-
+  console.log(admin);
   return admin ? (
     <div className="flex flex-row space-x-4 h-screen">
       <AdminNavbar />

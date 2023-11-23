@@ -1,8 +1,8 @@
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { useRef, useState } from "react";
-import { Input } from "postcss";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const DisplayItem = ({ props }) => {
@@ -36,8 +36,39 @@ const DisplayItem = ({ props }) => {
   const handleInputChange = (e) => {
     setQtyValue(parseInt(e.target.value));
   };
+
+  function handleReturn(categ) {
+    var route = "/productos";
+    switch (categ) {
+      case "Celular":
+        route = "/productos/celulares";
+        break;
+      case "Accesorio":
+        route = "/productos/accesorios";
+        break;
+      case "Tablet":
+        route = "/admin/tablets";
+        break;
+      case "Manga":
+        route = "/productos/mangas";
+        break;
+      default:
+        break;
+    }
+    return route;
+  }
+
   return (
     <div className="flex-row flex space-x-10 mt-12">
+      <div className="flex self-start pl-2">
+        <Button
+          onClick={() => {
+            navigate(handleReturn(item[7]));
+          }}
+        >
+          <FaArrowAltCircleLeft className="h-6 w-6" />
+        </Button>
+      </div>
       <div className="basis-1/2">
         <div className="flex flex-col justify-start items-center basis-1/2 space-y-4 ml-32">
           <img src={item[3]} className="h-full lg:w-auto w-auto"></img>

@@ -23,7 +23,7 @@ const DisplayItemsAdmin = ({ props }) => {
   }
 
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap justify-center">
       {items.slice(index, limit).map((Item) => (
         <Card key={Item[0]} imgAlt="" className="m-2">
           <img src={Item[3]} className="h-32 w-40 " />

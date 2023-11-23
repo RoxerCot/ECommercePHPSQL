@@ -5,13 +5,11 @@ import { useUserContext } from "../context/UserContext";
 const ItemAdmin = () => {
   const { producto } = useUserContext();
   return (
-    <div>
-      <DisplayItemAdmin
-        props={{
-          item: producto,
-        }}
-      />
-    </div>
+    <DisplayItemAdmin
+      props={{
+        item: producto,
+      }}
+    />
   );
 };
 export default ItemAdmin;

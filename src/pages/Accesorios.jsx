@@ -3,9 +3,11 @@ import DisplayItems from "../components/DisplayItems";
 import { Pagination, Label, Select } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const Accesorios = () => {
+  const { setProductos } = useUserContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [arrayItems, setArrayItems] = useState(false);
   const [numberItems, setNumberItems] = useState(4);
@@ -51,6 +53,7 @@ const Accesorios = () => {
       const resp_json = await resp.json();
       dataDisplay = ObjectToArray(resp_json, dataDisplay);
       setArrayItems(ObjectToArray(resp_json, arrayItems));
+      setProductos(dataDisplay);
       setTotalArrayItems(dataDisplay);
       if (dataDisplay.length / numberItems <= 1) {
         setTotalpages(1);
