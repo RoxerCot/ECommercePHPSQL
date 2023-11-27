@@ -56,7 +56,9 @@ const AvatarDropDown = () => {
       >
         {console.log(nameUser)}
         <Dropdown.Header className="">
-          <span className="block text-sm">{admin == 1 ? "Admin" : "User"}</span>
+          <span className="block text-sm">
+            {admin == 1 ? "Admin" : "Usuario"}
+          </span>
           <span className="block text-sm">{nameUser}</span>
         </Dropdown.Header>
         {admin == 1 ? null : (
@@ -87,9 +89,9 @@ const AvatarDropDown = () => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleAcceptDelete}>I accept</Button>
+          <Button onClick={handleAcceptDelete}>Acepto</Button>
           <Button color="gray" onClick={() => setOpenModal(false)}>
-            Decline
+            Cancelar
           </Button>
         </Modal.Footer>
       </Modal>

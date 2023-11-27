@@ -48,7 +48,7 @@ const NuevoItem = () => {
     <div className="flex flex-col h-screen mt-4 space-y-6 items-center justify-center w-screen">
       <div className="flex  space-x-2 items-center justify-center w-full mb-12">
         <div className="basis-1/3">
-          <Label className="text-xl font-bold">Inserte Nuevo Item</Label>
+          <Label className="text-xl font-bold">Inserte Nuevo Articulo</Label>
         </div>
       </div>
       <div className="flex flex-row space-x-2 items-center justify-center w-full">
@@ -81,7 +81,7 @@ const NuevoItem = () => {
       </div>
       <div className="flex flex-row space-x-2 items-center justify-center  w-full">
         <div className="basis-1/3">
-          <Label>Stock:</Label>
+          <Label>Cantidad disponible:</Label>
         </div>
         <TextInput ref={refStock} className="basis-1/3"></TextInput>
       </div>
@@ -132,7 +132,7 @@ const NuevoItem = () => {
         />
       </div>
       <div className="flex flex-row space-x-2 items-center justify-center w-full">
-        <Button onClick={handleSubmit}>Agregar Item</Button>
+        <Button onClick={handleSubmit}>Agregar Articulo</Button>
       </div>
     </div>
   );

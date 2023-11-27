@@ -39,7 +39,7 @@ const UserList = () => {
   return (
     <div className="flex flex-col w-screen justify-center items-center">
       <div className="basis-1/4 pt-12">
-        <p className="text-2xl font-bold">UserList</p>
+        <p className="text-2xl font-bold">Lista de usuarios</p>
       </div>
       <div className="flex  basis-3/4">
         {usersList ? (

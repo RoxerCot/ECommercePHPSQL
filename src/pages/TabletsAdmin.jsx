@@ -102,7 +102,7 @@ const TabletsAdmin = () => {
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
         >
-          Search
+          Buscar
         </label>
         <div className="relative">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -126,7 +126,7 @@ const TabletsAdmin = () => {
             type="search"
             id="default-search"
             className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search..."
+            placeholder="Buscar..."
             onChange={(e) => {
               setSearch(e.target.value);
             }}
@@ -136,12 +136,12 @@ const TabletsAdmin = () => {
             type="submit"
             className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Search
+            Buscar
           </button>
         </div>
       </form>
       <div className="mb-2 block self-start ml-4 mt-6">
-        <Label htmlFor="countries" value="Items por pagina" />
+        <Label htmlFor="countries" value="Articulos por pagina" />
         <Select
           id="countries"
           className="w-3/4 self-start m-2"
@@ -163,13 +163,15 @@ const TabletsAdmin = () => {
           }}
         ></DisplayItemsAdmin>
       ) : (
-        <p>Loading...</p>
+        <p>Cargando...</p>
       )}
       <div className="flex sm:justify-center mt-8 mb-10">
         <Pagination
           currentPage={totalPages < currentPage ? totalPages : currentPage}
           totalPages={totalPages}
           onPageChange={onPageChange}
+          previousLabel="Anterior"
+          nextLabel="Siguiente"
         />
       </div>
     </div>

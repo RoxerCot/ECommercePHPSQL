@@ -86,7 +86,7 @@ const DisplayCarritos = () => {
   return (
     <div className="flex flex-col w-screen ">
       <div className=" flex justify-center items-center mt-12">
-        <p className="text-xl font-bold">Carts List</p>
+        <p className="text-xl font-bold">Lista de Carritos</p>
       </div>
       <div className=" flex justify-center items-center  mt-12">
         {carritos ? (
@@ -128,7 +128,7 @@ const DisplayCarritos = () => {
             </Table.Body>
           </Table>
         ) : (
-          <p>Loading...</p>
+          <p>Cargando...</p>
         )}
       </div>
     </div>

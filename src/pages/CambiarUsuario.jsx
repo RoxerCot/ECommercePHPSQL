@@ -71,7 +71,7 @@ const CambiarUsuario = () => {
                 color="failure"
                 icon={HiInformationCircle}
               >
-                Info alert!... Usuarios no coinciden
+                Alerta!... Usuarios no coinciden
               </Alert>
             );
           case "Wrong Password":
@@ -81,7 +81,7 @@ const CambiarUsuario = () => {
                 color="failure"
                 icon={HiInformationCircle}
               >
-                Info alert!... Contraseña actual incorrecta
+                Alerta!... Contraseña actual incorrecta
               </Alert>
             );
           case "User Already Exists":
@@ -91,7 +91,7 @@ const CambiarUsuario = () => {
                 color="failure"
                 icon={HiInformationCircle}
               >
-                Info alert!... Usuario ya existe, intenta con otro
+                Alerta!... Usuario ya existe, intenta con otro
               </Alert>
             );
           default:

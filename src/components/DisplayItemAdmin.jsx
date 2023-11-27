@@ -258,7 +258,7 @@ const DisplayItemAdmin = ({ props }) => {
       </div>
       <div className="flex flex-row space-x-4 items-center w-3/4">
         <div className="flex flex-col basis-1/4">
-          <Label>Stock:</Label>
+          <Label>Cantidad disponible:</Label>
           <Label>{item[5]}</Label>
         </div>
         <TextInput ref={refStock} className="basis-1/4"></TextInput>
@@ -333,7 +333,7 @@ const DisplayItemAdmin = ({ props }) => {
         </Button>
       </div>
       <div className="flex flex-row space-x-4 items-center justify-center w-3/4 ">
-        <Button onClick={handleBorrar}>Borrar Item</Button>
+        <Button onClick={handleBorrar}>Borrar Articulo</Button>
       </div>
     </div>
   );

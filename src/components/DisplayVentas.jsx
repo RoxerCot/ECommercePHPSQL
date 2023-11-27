@@ -40,7 +40,7 @@ const DisplayVentas = () => {
   return (
     <div className="flex flex-col w-screen">
       <div className=" flex justify-center items-center mt-12">
-        <p className="text-xl font-bold">Sales List</p>
+        <p className="text-xl font-bold">Lista de Ventas</p>
       </div>
       <div className=" flex justify-center items-center  mt-12">
         {sales ? (
@@ -67,7 +67,7 @@ const DisplayVentas = () => {
             </Table.Body>
           </Table>
         ) : (
-          <p>Loading...</p>
+          <p>Cargando...</p>
         )}
       </div>
     </div>

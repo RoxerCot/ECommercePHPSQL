@@ -23,9 +23,7 @@ const LogInForm = () => {
         body: data,
       });
       const response_json = await resp.json();
-      console.log("HAS PROPERTY?", response_json.hasOwnProperty("Password"));
       if (response_json.hasOwnProperty("Password")) {
-        console.log(JSON.stringify(refEmail.current.value));
         localStorage.setItem("Usuario", JSON.stringify(refEmail.current.value));
         navigate(0);
       } else if (response_json.hasOwnProperty("Mensaje")) {
@@ -47,7 +45,7 @@ const LogInForm = () => {
             case "Bienvenida":
               return (
                 <Alert className="items-center justify-center" color="info">
-                  Bienvenido a E Commerce
+                  Bienvenido a Ciber D Cars
                 </Alert>
               );
             case "Wrong Password":
@@ -57,7 +55,7 @@ const LogInForm = () => {
                   color="failure"
                   icon={HiInformationCircle}
                 >
-                  Info alert!... Contraseña incorrecta
+                  Alerta!... Contraseña incorrecta
                 </Alert>
               );
             case "User Does Not Exist":
@@ -67,7 +65,7 @@ const LogInForm = () => {
                   color="failure"
                   icon={HiInformationCircle}
                 >
-                  Info alert!... Usuario No Existe
+                  Alerta!... Usuario No Existe
                 </Alert>
               );
             default:
@@ -77,11 +75,11 @@ const LogInForm = () => {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="email1" value="Your email" />
+          <Label htmlFor="email1" value="Tu email" />
         </div>
         <TextInput
           id="email1"
-          placeholder="name@flowbite.com"
+          placeholder="name@mail.com"
           // required
           type="email"
           ref={refEmail}
@@ -91,7 +89,7 @@ const LogInForm = () => {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="password1" value="Your password" />
+          <Label htmlFor="password1" value="Tu contraseña" />
         </div>
         <TextInput
           id="password1"
@@ -104,10 +102,10 @@ const LogInForm = () => {
       </div>
       <div className="flex items-center gap-2">
         <Checkbox id="remember" />
-        <Label htmlFor="remember">Remember me</Label>
+        <Label htmlFor="remember">Recuerdame</Label>
       </div>
       <Button onClick={handleSubmit} type="submit">
-        Log In
+        Iniciar Sesion
       </Button>
     </form>
   );

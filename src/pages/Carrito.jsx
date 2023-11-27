@@ -1,13 +1,18 @@
 import { useEffect, useRef } from "react";
 import { useUserContext } from "../context/UserContext";
 import { Button, ListGroup } from "flowbite-react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const Carrito = () => {
   const navigate = useNavigate();
-  const { userId, productoCarrito, setProductoCarrito, setTotalCompra } =
-    useUserContext();
+  const {
+    userId,
+    productoCarrito,
+    setProductoCarrito,
+    setTotalCompra,
+    setProducto,
+  } = useUserContext();
   /** Aqui transformo un objetto a un array */
   var dataDisplay = [];
   function ObjectToArray(object, array) {
@@ -21,7 +26,7 @@ const Carrito = () => {
     var res = 0;
     for (let index = 0; index < array.length; index++) {
       const element = array[index];
-      res += parseFloat(element[2]);
+      res += parseFloat(element[3]);
     }
     return res;
   }
@@ -64,8 +69,12 @@ const Carrito = () => {
   const handleCompra = () => {
     navigate("/productos/compra");
   };
+  const handleGoItem = (item) => {
+    setProducto(item);
+    navigate("/productos/item");
+  };
   return (
-    <div className="h-96">
+    <div className="h-full">
       {productoCarrito ? (
         productoCarrito[0][0] === "N" ? (
           <div className="h-full flex justify-center items-center">
@@ -79,9 +88,19 @@ const Carrito = () => {
                 id={Item[0]}
                 className="w-3/4 flex flex-row "
               >
-                <ListGroup.Item className="basis-1/2">{Item[1]}</ListGroup.Item>
-                <ListGroup.Item className="basis-1/4">{Item[2]}</ListGroup.Item>
-                <ListGroup.Item className="basis-1/4">{Item[3]}</ListGroup.Item>
+                {/* {console.log(Item[1], " : ", Item[3])} */}
+                <ListGroup.Item
+                  onClick={() => handleGoItem(Item)}
+                  className="basis-1/2"
+                >
+                  {Item[1]}
+                </ListGroup.Item>
+                <ListGroup.Item className="basis-1/4">
+                  $ {Item[4]}
+                </ListGroup.Item>
+                <ListGroup.Item className="basis-1/4">
+                  {Item[11]}
+                </ListGroup.Item>
                 <ListGroup.Item onClick={() => handleDeleteItem(Item[0])}>
                   Borrar
                 </ListGroup.Item>

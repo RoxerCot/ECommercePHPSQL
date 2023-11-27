@@ -18,8 +18,9 @@ const DisplayItem = ({ props }) => {
       data.append("METHOD", "ADDCART");
       data.append("userId", userId);
       data.append("cantidad", qtyValue);
-      data.append("item", item[0]);
+      data.append("itemId", item[0]);
       AddItem(URL, data);
+      console.log(data);
       console.log("Item added");
     } catch (error) {
       console.log(error);
@@ -96,8 +97,7 @@ const DisplayItem = ({ props }) => {
             Stock: {item[5]}
           </p>
         </div>
-
-        <form onSubmit={handleSubmit} className="mt-8 flex flex-col space-y-4">
+        <div className="mt-8 flex flex-col space-y-4">
           <div className="flex flex-row justify-center items-center space-x-1">
             <button
               onClick={() => setQtyValue(qtyValue - 1)}
@@ -144,8 +144,8 @@ const DisplayItem = ({ props }) => {
               </svg>
             </button>
           </div>
-          <Button type="submit">Comprar</Button>
-        </form>
+          <Button onClick={handleSubmit}>Comprar</Button>
+        </div>
       </div>
     </div>
   );

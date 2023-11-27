@@ -82,7 +82,7 @@ const AdminNavbar = () => {
               className="flex items-center justify-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-70
             active:bg-gray-100 active:dark:bg-gray-700"
             >
-              Nuevo Item
+              Nuevo Articulo
             </NavLink>
             <NavLink
               to="/admin/nuevousuario"
@@ -90,6 +90,13 @@ const AdminNavbar = () => {
             active:bg-gray-100 active:dark:bg-gray-700"
             >
               Nuevo Usuario
+            </NavLink>
+            <NavLink
+              to="/admin/nuevacategoria"
+              className="flex items-center justify-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-70
+            active:bg-gray-100 active:dark:bg-gray-700"
+            >
+              Nueva Categoria
             </NavLink>
             <NavLink
               to="/admin/carritos"
@@ -105,8 +112,8 @@ const AdminNavbar = () => {
             >
               Ventas
             </NavLink>
-            <div className="flex items-center justify-center">
-              <Button onClick={handleLogout}>Log Out</Button>
+            <div className="flex items-center justify-center mt-4">
+              <Button onClick={handleLogout}>Cerrar Sesion</Button>
             </div>
           </Sidebar.ItemGroup>
         </Sidebar.Items>

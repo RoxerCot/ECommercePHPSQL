@@ -49,7 +49,7 @@ const DisplayUser = ({ props }) => {
         </Button>
       </div>
       <div className="basis-1/4 pt-12 justify-center items-center flex">
-        <p className="text-2xl font-bold">User</p>
+        <p className="text-2xl font-bold">Usuario</p>
       </div>
       <div className=" justify-center items-center flex">
         <Table>

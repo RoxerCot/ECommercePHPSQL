@@ -1,4 +1,4 @@
-import { Button, Label, TextInput, Select, ToggleSwitch } from "flowbite-react";
+import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 const URL = "http://localhost/BackEnd2/Api.php";

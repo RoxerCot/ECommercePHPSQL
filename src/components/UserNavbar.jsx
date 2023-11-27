@@ -1,4 +1,4 @@
-import { Button, Navbar } from "flowbite-react";
+import { Button, DarkThemeToggle, Navbar } from "flowbite-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import AvatarDropDown from "./AvatarDropDown";
 const URL = "http://localhost/BackEnd2/Api.php";
@@ -36,9 +36,10 @@ const ComponentNavbar = () => {
             Ciber D Cars
           </span>
         </Navbar.Brand>
+        <DarkThemeToggle />
         <div className="flex md:order-2">
           <AvatarDropDown />
-          <Button onClick={handleLogout}>Log Out</Button>
+          <Button onClick={handleLogout}>Cerrar Sesion</Button>
         </div>
         <Navbar.Toggle />
         <Navbar.Collapse>

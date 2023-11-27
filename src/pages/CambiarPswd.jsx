@@ -71,7 +71,7 @@ const CambiarPswd = () => {
                 color="failure"
                 icon={HiInformationCircle}
               >
-                Info alert!... Contraseñas no coinciden
+                Alerta!... Contraseñas no coinciden
               </Alert>
             );
           case "Wrong Password":
@@ -81,7 +81,7 @@ const CambiarPswd = () => {
                 color="failure"
                 icon={HiInformationCircle}
               >
-                Info alert!... Contraseña actual incorrecta
+                Alerta!... Contraseña actual incorrecta
               </Alert>
             );
           default:

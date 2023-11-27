@@ -30,6 +30,7 @@ import CambiarUsuario from "../pages/CambiarUsuario";
 import CambiarPswd from "../pages/CambiarPswd";
 import VentasAdmin from "../pages/VentasAdmin";
 import VentaAdmin from "../pages/VentaAdmin";
+import NuevaCategoria from "../pages/NuevaCategoria";
 
 export const router = createBrowserRouter([
   {
@@ -132,6 +133,10 @@ export const router = createBrowserRouter([
               {
                 path: "/admin/nuevousuario",
                 element: <NuevoUsuario />,
+              },
+              {
+                path: "/admin/nuevacategoria",
+                element: <NuevaCategoria />,
               },
               {
                 path: "/admin/usuario",

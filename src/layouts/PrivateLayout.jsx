@@ -23,14 +23,14 @@ const PrivateLayout = () => {
             </div>
             <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
               <div>
-                <Footer.Title title="about" />
+                <Footer.Title title="Sobre Nosotros" />
                 <Footer.LinkGroup col>
                   <Footer.Link href="#">Mision</Footer.Link>
                   <Footer.Link href="#">Vision</Footer.Link>
                 </Footer.LinkGroup>
               </div>
               <div>
-                <Footer.Title title="Follow us" />
+                <Footer.Title title="Siguenos" />
                 <Footer.LinkGroup col>
                   <Footer.Link href="#">Facebook</Footer.Link>
                   <Footer.Link href="#">Instaram</Footer.Link>
@@ -39,15 +39,15 @@ const PrivateLayout = () => {
               <div>
                 <Footer.Title title="Legal" />
                 <Footer.LinkGroup col>
-                  <Footer.Link href="#">Privacy Policy</Footer.Link>
-                  <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+                  <Footer.Link href="#">Politicas de Privacidad</Footer.Link>
+                  <Footer.Link href="#">Terminos &amp; Condiciones</Footer.Link>
                 </Footer.LinkGroup>
               </div>
             </div>
           </div>
           <Footer.Divider />
           <div className="w-full sm:flex sm:items-center sm:justify-between">
-            <Footer.Copyright href="#" by="E-Commerce™" year={2023} />
+            <Footer.Copyright href="#" by="Ciber D Cars™" year={2023} />
             <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
               <Footer.Icon href="#" icon={BsFacebook} />
               <Footer.Icon href="#" icon={BsInstagram} />

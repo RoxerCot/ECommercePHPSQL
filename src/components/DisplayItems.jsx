@@ -26,6 +26,7 @@ const DisplayItems = ({ props }) => {
       data.append("METHOD", "ADDITEMCART");
       data.append("userId", userId);
       data.append("itemId", itemId);
+      console.log(data);
       AddItem(URL, data);
     } catch (error) {
       console.error("Error Adding item:", error);
@@ -58,8 +59,8 @@ const DisplayItems = ({ props }) => {
             </Link>
             <Button onClick={() => handleAddItem(Item[0])}>Agregar</Button>
             <div className="flex items-center justify-between w-40">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                {Intl.NumberFormat().format(Item[4])}
+              <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                $ {Intl.NumberFormat().format(Item[4])}
               </span>
             </div>
           </Card>

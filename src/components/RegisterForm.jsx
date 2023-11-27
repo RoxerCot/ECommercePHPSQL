@@ -53,7 +53,7 @@ const RegisterForm = () => {
               case "Bienvenida":
                 return (
                   <Alert className="items-center justify-center" color="info">
-                    Bienvenido a E Commerce
+                    Bienvenido a Ciber D Cars
                   </Alert>
                 );
               case "User Already Exists":
@@ -63,7 +63,7 @@ const RegisterForm = () => {
                     color="failure"
                     icon={HiInformationCircle}
                   >
-                    Info alert!... Este Email ya ha sido registrado
+                    Alerta!... Este Email ya ha sido registrado
                   </Alert>
                 );
               default:
@@ -73,11 +73,11 @@ const RegisterForm = () => {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="email1" value="Your email" />
+            <Label htmlFor="email1" value="Tu email" />
           </div>
           <TextInput
             id="email1"
-            placeholder="name@flowbite.com"
+            placeholder="name@mail.com"
             required
             type="email"
             ref={refEmail}
@@ -85,7 +85,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="password1" value="Your password" />
+            <Label htmlFor="password1" value="Tu contraseña" />
           </div>
           <TextInput id="password1" required type="password" ref={refPswd} />
         </div>

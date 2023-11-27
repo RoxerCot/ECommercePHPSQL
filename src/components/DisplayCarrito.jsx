@@ -60,13 +60,13 @@ const DisplayCarrito = ({ props }) => {
         </Button>
       </div>
       <div className="flex justify-center items-center">
-        <p className="text-xl font-bold">Cart</p>
+        <p className="text-xl font-bold">Carrito</p>
       </div>
       <div className="flex justify-center items-center mt-24">
         {pickedcarrito ? (
           <Table className="w-fit" hoverable>
             <Table.Head>
-              <Table.HeadCell>Items</Table.HeadCell>
+              <Table.HeadCell>Articulos</Table.HeadCell>
               <Table.HeadCell>Costo</Table.HeadCell>
               <Table.HeadCell>Cantidad</Table.HeadCell>
             </Table.Head>

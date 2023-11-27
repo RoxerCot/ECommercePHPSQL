@@ -34,12 +34,14 @@ export default function UserContextProvider({ children }) {
           body: data,
         });
         const { Id, Sesion, Admin, Usuario } = await resp.json();
-        console.log(Admin);
+        console.log(Sesion);
         setAdmin(Admin);
         setUserId(Id);
         setNameUser(Usuario);
-        if (Sesion) {
+        if (Sesion == 1) {
           setUser(JSON.parse(localStorage.getItem("Usuario")));
+        } else {
+          setUser(null);
         }
       };
       fetchData();
