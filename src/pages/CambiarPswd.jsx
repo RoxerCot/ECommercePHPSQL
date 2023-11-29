@@ -49,7 +49,7 @@ const CambiarPswd = () => {
     setNewPswdConf(e.target.value);
   };
   return (
-    <div>
+    <div className="dark:bg-neutral-950">
       {(() => {
         switch (alert) {
           case "Bienvenida":

@@ -2,7 +2,7 @@ import CarruselInicio from "../components/CarruselInicio";
 
 const Inicio = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center dark:bg-neutral-950">
       <div className="basis-1/2 ">
         <CarruselInicio />
       </div>

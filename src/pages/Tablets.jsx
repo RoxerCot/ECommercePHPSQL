@@ -94,8 +94,8 @@ const Tablets = () => {
     }
   }, [search]);
   return (
-    <>
-      <div className="w-screen flex flex-col pr-8 mt-8">
+    <div className="dark:bg-neutral-950">
+      <div className="w-screen flex flex-col pr-8 mt-8 ">
         <form className="w-3/4 self-center place-self-center">
           <label
             htmlFor="default-search"
@@ -174,7 +174,7 @@ const Tablets = () => {
           nextLabel="Siguiente"
         />
       </div>
-    </>
+    </div>
   );
 };
 export default Tablets;

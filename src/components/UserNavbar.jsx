@@ -25,7 +25,7 @@ const ComponentNavbar = () => {
   };
   return (
     <div className="sticky top-0 z-50">
-      <Navbar className=" w-full top-0 " fluid rounded>
+      <Navbar className=" w-full top-0 " fluid>
         <Navbar.Brand href="/">
           <img
             alt="Logo"
@@ -44,12 +44,20 @@ const ComponentNavbar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <NavLink active="true" to="/">
-            <p>Inicio</p>
+            <p className="dark:text-gray-200 font-bold">Inicio</p>
           </NavLink>
-          <NavLink to="/productos/celulares">Celulares</NavLink>
-          <NavLink to="/productos/tablets">Tablets</NavLink>
-          <NavLink to="/productos/accesorios">Accesorios</NavLink>
-          <NavLink to="/productos/mangas">Mangas</NavLink>
+          <NavLink to="/productos/celulares">
+            <p className="dark:text-gray-200 font-bold">Celulares</p>
+          </NavLink>
+          <NavLink to="/productos/tablets">
+            <p className="dark:text-gray-200 font-bold">Tablets</p>
+          </NavLink>
+          <NavLink to="/productos/accesorios">
+            <p className="dark:text-gray-200 font-bold">Accesorios</p>
+          </NavLink>
+          <NavLink to="/productos/mangas">
+            <p className="dark:text-gray-200 font-bold">Mangas</p>
+          </NavLink>
         </Navbar.Collapse>
       </Navbar>
     </div>

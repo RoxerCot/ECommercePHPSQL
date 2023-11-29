@@ -1,4 +1,4 @@
-import { Button, Navbar, Sidebar } from "flowbite-react";
+import { Button, DarkThemeToggle, Navbar, Sidebar } from "flowbite-react";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
@@ -8,6 +8,14 @@ const AdminNavbar = () => {
   const { setAdmin } = useUserContext();
   const customTheme = {
     img: "mr-3 h-12",
+    inner:
+      "h-full overflow-y-auto overflow-x-hidden rounded-none bg-gray-50 py-4 px-3 dark:bg-gray-800",
+    cta: {
+      base: "mt-6 rounded-none p-4 bg-gray-100 dark:bg-gray-700",
+    },
+    item: {
+      base: "flex items-center justify-center rounded-none p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
+    },
   };
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -40,6 +48,9 @@ const AdminNavbar = () => {
         >
           Ciber D Cars
         </Sidebar.Logo>
+        <div className="flex items-center justify-center">
+          <DarkThemeToggle />
+        </div>
         <Sidebar.Items>
           <Sidebar.ItemGroup>
             <NavLink

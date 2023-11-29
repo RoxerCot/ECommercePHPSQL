@@ -49,7 +49,7 @@ const CambiarUsuario = () => {
     setNewUsrConf(e.target.value);
   };
   return (
-    <div>
+    <div className="dark:bg-neutral-950">
       {(() => {
         switch (alert) {
           case "Bienvenida":
