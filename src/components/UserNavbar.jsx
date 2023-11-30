@@ -58,6 +58,9 @@ const ComponentNavbar = () => {
           <NavLink to="/productos/mangas">
             <p className="dark:text-gray-200 font-bold">Mangas</p>
           </NavLink>
+          <NavLink to="/productos/otros">
+            <p className="dark:text-gray-200 font-bold">Otros</p>
+          </NavLink>
         </Navbar.Collapse>
       </Navbar>
     </div>

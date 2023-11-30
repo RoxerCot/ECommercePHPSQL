@@ -8,13 +8,11 @@ const AdminNavbar = () => {
   const { setAdmin } = useUserContext();
   const customTheme = {
     img: "mr-3 h-12",
-    inner:
-      "h-full overflow-y-auto overflow-x-hidden rounded-none bg-gray-50 py-4 px-3 dark:bg-gray-800",
-    cta: {
-      base: "mt-6 rounded-none p-4 bg-gray-100 dark:bg-gray-700",
-    },
-    item: {
-      base: "flex items-center justify-center rounded-none p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700",
+  };
+  const customTheme2 = {
+    root: {
+      inner:
+        "h-full overflow-y-auto overflow-x-hidden rounded-none bg-gray-50 py-8 px-3 dark:bg-gray-800",
     },
   };
   const navigate = useNavigate();
@@ -38,8 +36,11 @@ const AdminNavbar = () => {
     }).then(() => navigate(0));
   };
   return (
-    <div className="h-screen sticky top-0">
-      <Sidebar aria-label="Sidebar with logo branding example">
+    <div className="h-screen sticky top-0 rounded-none">
+      <Sidebar
+        aria-label="Sidebar with logo branding example"
+        theme={customTheme2}
+      >
         <Sidebar.Logo
           theme={customTheme}
           href="/"
@@ -48,10 +49,10 @@ const AdminNavbar = () => {
         >
           Ciber D Cars
         </Sidebar.Logo>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mb-2 mt-2">
           <DarkThemeToggle />
         </div>
-        <Sidebar.Items>
+        <Sidebar.Items className="rounded-none">
           <Sidebar.ItemGroup>
             <NavLink
               to="/admin"
@@ -87,6 +88,13 @@ const AdminNavbar = () => {
             active:bg-gray-100 active:dark:bg-gray-700"
             >
               Mangas
+            </NavLink>
+            <NavLink
+              to="/admin/otros"
+              className="flex items-center justify-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-70
+            active:bg-gray-100 active:dark:bg-gray-700"
+            >
+              Otros
             </NavLink>
             <NavLink
               to="/admin/nuevoitem"

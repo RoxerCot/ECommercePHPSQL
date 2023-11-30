@@ -31,6 +31,8 @@ import CambiarPswd from "../pages/CambiarPswd";
 import VentasAdmin from "../pages/VentasAdmin";
 import VentaAdmin from "../pages/VentaAdmin";
 import NuevaCategoria from "../pages/NuevaCategoria";
+import OtrosAdmin from "../pages/OtrosAdmin";
+import Otros from "../pages/Otros";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +76,10 @@ export const router = createBrowserRouter([
               {
                 path: "/productos/mangas",
                 element: <Mangas />,
+              },
+              {
+                path: "/productos/otros",
+                element: <Otros />,
               },
               {
                 path: "/productos/item",
@@ -121,6 +127,10 @@ export const router = createBrowserRouter([
               {
                 path: "/admin/mangas",
                 element: <MangasAdmin />,
+              },
+              {
+                path: "/admin/otros",
+                element: <OtrosAdmin />,
               },
               {
                 path: "/admin/item",
