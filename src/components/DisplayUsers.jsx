@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Button, ListGroup, Table } from "flowbite-react";
+import { Button, Label, ListGroup, Table } from "flowbite-react";
 import { useUserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Api.php";
@@ -39,7 +39,7 @@ const UserList = () => {
   return (
     <div className="flex flex-col w-screen justify-center items-center ">
       <div className="basis-1/4 pt-12">
-        <p className="text-2xl font-bold">Lista de usuarios</p>
+        <Label className="text-2xl font-bold">Lista de usuarios</Label>
       </div>
       <div className="flex  basis-3/4">
         {usersList ? (

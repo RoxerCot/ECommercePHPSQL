@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, ListGroup, Table } from "flowbite-react";
+import { Button, Label, ListGroup, Table } from "flowbite-react";
 import { useUserContext } from "../context/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 const URL = "http://localhost/BackEnd2/Api.php";
@@ -40,7 +40,7 @@ const DisplayVentas = () => {
   return (
     <div className="flex flex-col w-screen">
       <div className=" flex justify-center items-center mt-12">
-        <p className="text-xl font-bold">Lista de Ventas</p>
+        <Label className="text-xl font-bold">Lista de Ventas</Label>
       </div>
       <div className=" flex justify-center items-center  mt-12">
         {sales ? (
