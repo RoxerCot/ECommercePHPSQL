@@ -53,6 +53,9 @@ const DisplayItem = ({ props }) => {
       case "Manga":
         route = "/productos/mangas";
         break;
+      case "Otros":
+        route = "/admin/otros";
+        break;
       default:
         break;
     }

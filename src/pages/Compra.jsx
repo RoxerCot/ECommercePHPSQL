@@ -8,7 +8,7 @@ import {
   Image,
 } from "@react-pdf/renderer";
 import { useUserContext } from "../context/UserContext";
-// Create styles
+// Creacion de stilos para la renderizacion de PDF
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "black",
@@ -37,9 +37,9 @@ const Compra = () => {
   return (
     <div className="flex justify-center items-center">
       <PDFViewer style={styles.viewer}>
-        {/* Start of the document*/}
+        {/* Inicio de PDF*/}
         <Document>
-          {/*render a single page*/}
+          {/*renderizacion  por pagina*/}
           <Page size="A4" style={styles.page}>
             <View>
               <Image
@@ -53,6 +53,8 @@ const Compra = () => {
             </View>
             <View style={styles.section}>
               <Text>Cantidad a pagar:</Text>
+
+              {/*formato a numero del total de la compra*/}
               <Text>$ {new Intl.NumberFormat().format(totalCompra)}</Text>
             </View>
           </Page>

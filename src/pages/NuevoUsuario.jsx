@@ -1,13 +1,25 @@
+/**Importacion de librerias para su uso en el componente */
 import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const NuevoUsuario = () => {
+  /**Declaracion de hook useState para la generacion de variable necesarias para el funcionamient
+   *  adecuado de la renderizacion de componentes
+   */
   const [switch1, setSwitch1] = useState(false);
+  /**Declaracion de hook useRef para  compartir los valores de los componentes renderizados
+   *  a las funciones de Js correspondientes
+   */
   const refEmail = useRef(null);
   const refPswd = useRef(null);
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
+  /**Funcion asincrona para agregr Usuario */
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,6 +34,7 @@ const NuevoUsuario = () => {
       console.log(error);
     }
   };
+  /**Funcion para realizar peticion al backend por http con el metodo POST */
   const AddUser = async (url, data) => {
     const resp = await fetch(url, {
       method: "POST",
@@ -34,6 +47,7 @@ const NuevoUsuario = () => {
       onSubmit={handleSubmit}
       className="flex flex-col h-screen mt-4 space-y-6 items-center justify-center w-screen"
     >
+      {/**Renderizacion de formulario para la creacion de un nuevo usuari en la base de datos */}
       <div className="flex  space-x-2 items-center justify-center w-full mb-12">
         <div className="basis-1/3">
           <Label className="text-xl font-bold">Inserte Nuevo Usuario</Label>

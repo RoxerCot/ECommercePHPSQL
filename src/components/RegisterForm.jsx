@@ -1,3 +1,4 @@
+/**Importacion de librerias para su uso en el componente */
 import { useRef, useState } from "react";
 import { useRedirectActiveUser } from "../hooks/useRedirectActiveUser";
 import { useUserContext } from "../context/UserContext";
@@ -5,13 +6,20 @@ import { Alert, Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { HiInformationCircle } from "react-icons/hi";
 
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const RegisterForm = () => {
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
+  /**Declaracion de variable referenciada al balor del componente aasignado para su uso en el codigo de funcionamiento del componente Js  */
   const refEmail = useRef(null);
   const refPswd = useRef(null);
+  /**Declaracion de funcion para definir  variable compartida por userContext */
   const { user } = useUserContext();
+  /**Declaracion de variable compartida con el render de este mismo componente  */
   const [alert, setAlert] = useState("Bienvenida");
   useRedirectActiveUser(user, "/productos");
 
@@ -22,6 +30,7 @@ const RegisterForm = () => {
       data.append("METHOD", "REGISTER");
       data.append("usuario", refEmail.current.value);
       data.append("password", refPswd.current.value);
+      /**Funcion asincrona para realizar la peticion http al backend con metodo POST */
       const resp = await fetch(URL, {
         method: "POST",
         body: data,
@@ -48,6 +57,7 @@ const RegisterForm = () => {
           Registro
         </p>
         <div>
+          {/**Condicion de alerta para despliegue de mensaje al usuario */}
           {(() => {
             switch (alert) {
               case "Bienvenida":
@@ -72,6 +82,7 @@ const RegisterForm = () => {
           })()}
         </div>
         <div>
+          {/**Renderizacion del formulario para el registro de usuario */}
           <div className="mb-2 block">
             <Label htmlFor="email1" value="Tu email" />
           </div>
@@ -89,6 +100,7 @@ const RegisterForm = () => {
           </div>
           <TextInput id="password1" required type="password" ref={refPswd} />
         </div>
+        {/**Renderizacion del formulario para ejecutar la peticion al backend de el registro de usuario*/}
         <Button type="submit">Registrar</Button>
       </form>
     </>

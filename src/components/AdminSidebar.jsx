@@ -1,21 +1,29 @@
-import { Button, DarkThemeToggle, Navbar, Sidebar } from "flowbite-react";
-
+/**Importacion de librerias para su uso en el componente */
+import { Button, DarkThemeToggle, Sidebar } from "flowbite-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const AdminNavbar = () => {
+  /**Declaracion de funcion para definir  variable compartida por userContext */
   const { setAdmin } = useUserContext();
+  /**Se crea tema personalizado para la imagen */
   const customTheme = {
     img: "mr-3 h-12",
   };
+  /**Se crea tema personalizado para la barra de navegacion lateral */
   const customTheme2 = {
     root: {
       inner:
         "h-full overflow-y-auto overflow-x-hidden rounded-none bg-gray-50 py-8 px-3 dark:bg-gray-800",
     },
   };
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
+  /**Funcion asincrona para el manejo de cierre de session y peticion al backend */
   const handleLogout = async () => {
     try {
       var data = new FormData();
@@ -28,7 +36,7 @@ const AdminNavbar = () => {
       console.log(error);
     }
   };
-
+  /**Funcion para realizar peticion de http con metodo post al backend */
   const logOut = async (url, data) => {
     const resp = await fetch(url, {
       method: "POST",
@@ -37,10 +45,12 @@ const AdminNavbar = () => {
   };
   return (
     <div className="h-screen sticky top-0 rounded-none">
+      {/** Rennderzacion de barra de navegacion lateral*/}
       <Sidebar
         aria-label="Sidebar with logo branding example"
         theme={customTheme2}
       >
+        {/** Rennderzacion de logo de barra de navegacion lateral*/}
         <Sidebar.Logo
           theme={customTheme}
           href="/"
@@ -50,8 +60,10 @@ const AdminNavbar = () => {
           Ciber D Cars
         </Sidebar.Logo>
         <div className="flex items-center justify-center mb-2 mt-2">
+          {/**  Renderizacion de alternacion para de cambio a Darktheme*/}
           <DarkThemeToggle />
         </div>
+        {/** Renderizacion opciones de navegacion de a barra lateral*/}
         <Sidebar.Items className="rounded-none">
           <Sidebar.ItemGroup>
             <NavLink
@@ -132,6 +144,7 @@ const AdminNavbar = () => {
               Ventas
             </NavLink>
             <div className="flex items-center justify-center mt-4">
+              {/** Renderizacion de boton para el cierre de sesion  */}
               <Button onClick={handleLogout}>Cerrar Sesion</Button>
             </div>
           </Sidebar.ItemGroup>

@@ -1,12 +1,20 @@
+/**Importacion de librerias para su uso en el componente */
 import { Button, Label, TextInput, Select, ToggleSwitch } from "flowbite-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const NuevoItem = () => {
+  /**Declaracion de hook useState para la generacion de variable necesarias para el funcionamient
+   *  adecuado de la renderizacion de componentes
+   */
   const [switch1, setSwitch1] = useState(false);
   const [selectOption, setSelectOption] = useState("Celular");
   const [options, seOptions] = useState(null);
+  /**Declaracion de hook useRef para  compartir los valores de los componentes renderizados
+   *  a las funciones de Js correspondientes
+   */
   const refNombre = useRef(null);
   const refDescripcion = useRef(null);
   const refFoto = useRef(null);
@@ -16,7 +24,11 @@ const NuevoItem = () => {
   const refModelo = useRef(null);
   const refPeso = useRef(null);
   var dataDisplay = [];
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
+  /** Aqui transformo un objetto a un array */
 
   function ObjectToArray(object, array) {
     array = [];
@@ -25,7 +37,7 @@ const NuevoItem = () => {
     }
     return array;
   }
-
+  /**Hook UseEffect para la realizar la peticion al backend y asi obtener las categorias existentes de productos */
   useEffect(() => {
     const fetchData = async () => {
       seOptions(false);
@@ -42,7 +54,7 @@ const NuevoItem = () => {
     fetchData();
     return () => {};
   }, []);
-
+  /**Funcion asincrona para agregr Item */
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -65,7 +77,7 @@ const NuevoItem = () => {
       console.log(error);
     }
   };
-
+  /**Funcion para realizar peticion al backend por http con el metodo POST */
   const AddItem = async (url, data) => {
     const resp = await fetch(url, {
       method: "POST",
@@ -74,6 +86,7 @@ const NuevoItem = () => {
   };
   return (
     <div className="flex flex-col h-screen mt-4 space-y-6 items-center justify-center w-screen">
+      {/**Renderizacion de formulario para la creacion de un nuevo producto en el inventario */}
       <div className="flex  space-x-2 items-center justify-center w-full mb-12">
         <div className="basis-1/3">
           <Label className="text-xl font-bold">Inserte Nuevo Articulo</Label>
@@ -123,6 +136,7 @@ const NuevoItem = () => {
         <div className="basis-1/3">
           <Label>Categoria:</Label>
         </div>
+        {/**Renderizacion de Select con las categorias traidas de la base de datos */}
         {options ? (
           <Select
             onChange={(e) => {

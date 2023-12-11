@@ -1,12 +1,16 @@
+/**Importacion de librerias para su uso en el componente */
 import { Button, Label, TextInput, Select, ToggleSwitch } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const DisplayItemAdmin = ({ props }) => {
+  /**Declaracion de variable compartida con el render de este mismo componente  */
   const [switch1, setSwitch1] = useState(false);
   const [selectOption, setSelectOption] = useState("Celular");
+  /**Declaracion de variable referenciada al balor del componente aasignado para su uso en el codigo de funcionamiento del componente Js  */
   const refNombre = useRef(null);
   const refDescripcion = useRef(null);
   const refFoto = useRef(null);
@@ -15,9 +19,13 @@ const DisplayItemAdmin = ({ props }) => {
   const refMarca = useRef(null);
   const refModelo = useRef(null);
   const refPeso = useRef(null);
+  /**Desestructuracion de las propiedades asignadas a la creacion del componente */
   const { item } = props;
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
-
+  /**Funciones para realizar la peticion de modificar la informacion seleccionada del producto */
   const handleName = async (e) => {
     e.preventDefault();
     try {
@@ -171,7 +179,7 @@ const DisplayItemAdmin = ({ props }) => {
       console.log(error);
     }
   };
-
+  /**Funcion asincrona para realizar la peticion http al backend con metodo POST */
   const ModItem = async (url, data) => {
     const resp = await fetch(url, {
       method: "POST",
@@ -179,7 +187,7 @@ const DisplayItemAdmin = ({ props }) => {
     }).then(() => navigate(0));
     // .then(() => navigate(0))
   };
-
+  /**Funcion para regresar al despliegue de producto dependiendo de la  categoria */
   function handleReturn(categ) {
     var route = "/admin";
     switch (categ) {
@@ -195,6 +203,9 @@ const DisplayItemAdmin = ({ props }) => {
       case "Manga":
         route = "/admin/mangas";
         break;
+      case "Otros":
+        route = "/admin/otros";
+        break;
       default:
         break;
     }
@@ -202,6 +213,7 @@ const DisplayItemAdmin = ({ props }) => {
   }
   return (
     <div className="flex flex-col h-fit space-y-12 items-center content-start w-screen mt-12 pb-12">
+      {/** Rennderzacion de buton para regresar al despliege de componentes por categoria*/}
       <div className="flex self-start pl-2">
         <Button
           onClick={() => {
@@ -211,6 +223,7 @@ const DisplayItemAdmin = ({ props }) => {
           <FaArrowAltCircleLeft className="h-6 w-6" />
         </Button>
       </div>
+      {/** Rennderzacion de la informacion del componente, la entrada para modificacion y el boton a modificar, por campo*/}
       <div className="flex flex-col space-y-4 ">
         <h1 className="font-bold ">{item[1]}</h1>
         <img src={item[3]} className="object-contain h-32"></img>

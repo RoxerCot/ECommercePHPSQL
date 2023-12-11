@@ -1,20 +1,29 @@
+/**Importacion de librerias para su uso en el componente */
 import { Pagination, Label, Select } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import DisplayItemsAdmin from "../components/DisplayItemsAdmin";
+
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const AccesoriosAdmin = () => {
+  /**Declaracion de variable compartida por userContext */
   const { setProductos } = useUserContext();
+  /**Declaracion de variable compartida con el render de este mismo componente  */
   const [currentPage, setCurrentPage] = useState(1);
   const [arrayItems, setArrayItems] = useState(false);
   const [numberItems, setNumberItems] = useState(4);
   const [totalPages, setTotalpages] = useState(0);
   const [search, setSearch] = useState(0);
   const [totalarrayItems, setTotalArrayItems] = useState(false);
+  /**Variables declaradas para su uso en funciones js */
   var arraySearch = [];
   var dataDisplay = [];
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
   const onPageChange = (page) => {
     setCurrentPage(page);
@@ -64,6 +73,11 @@ const AccesoriosAdmin = () => {
     return () => {};
   }, []);
 
+  /**
+   * hook declarado para ejecutar la funcion de la barra de busqueda,
+   * aqui se filtran los productos de acuerdo a la entrada de la barra de busqueda
+   * y se definen cuantas paginas se necesitan para desplegar los componentes
+   */
   useEffect(() => {
     for (let index = 0; index < totalarrayItems.length; index++) {
       if (
@@ -96,7 +110,7 @@ const AccesoriosAdmin = () => {
 
   return (
     <div className="flex flex-col w-screen justify-start items-center  pr-8 mt-8">
-      {/**Seach Bar */}
+      {/**Renderizacion de form para busqueda de producto de acuerdo a la entrada de la barra de busqueda */}
       <form className="w-3/4 self-center place-self-center">
         <label
           htmlFor="default-search"
@@ -122,6 +136,7 @@ const AccesoriosAdmin = () => {
               />
             </svg>
           </div>
+          {/**Funcion que se ejecuta al cambio de valor, definiendo la variable de Search para su uso en el hook respectivo */}
           <input
             type="search"
             id="default-search"
@@ -142,6 +157,7 @@ const AccesoriosAdmin = () => {
       </form>
       <div className="mb-2 block self-start ml-4 mt-6">
         <Label htmlFor="countries" value="Articulos por pagina" />
+        {/** Renderizacion de select para decidir cuantos objetos se despliegan por pagina*/}
         <Select
           id="countries"
           className="w-3/4 self-start m-2"
@@ -154,6 +170,7 @@ const AccesoriosAdmin = () => {
           <option value="24">24</option>
         </Select>
       </div>
+      {/**Componente que se renderiza para el despliegue de productos */}
       {arrayItems ? (
         <DisplayItemsAdmin
           props={{
@@ -166,6 +183,7 @@ const AccesoriosAdmin = () => {
         <p>Cargando...</p>
       )}
       <div className="flex sm:justify-center mt-8 mb-10">
+        {/**Renderizacion de indicador de pagina y navegacion de pagina dentro del componente */}
         <Pagination
           currentPage={totalPages < currentPage ? totalPages : currentPage}
           totalPages={totalPages}

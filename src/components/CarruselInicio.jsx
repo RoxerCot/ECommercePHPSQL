@@ -1,6 +1,8 @@
+/**Importacion de librerias para su uso en el componente */
 import { Carousel } from "flowbite-react";
 
 const CarruselInicio = () => {
+  /**Se crea tema personalizado para el carrusel de imagenes */
   const customTheme = {
     control: {
       base: "inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-600/30 group-hover:bg-sky-950/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10",
@@ -9,6 +11,7 @@ const CarruselInicio = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center w-screen h-96 gap-x-8 mt-12">
+      {/** Rennderzacion del carrusel de imagenes*/}
       <Carousel theme={customTheme} className="w-4/5" slide={false}>
         <img
           alt=""

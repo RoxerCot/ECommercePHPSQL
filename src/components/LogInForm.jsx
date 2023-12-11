@@ -1,14 +1,21 @@
+/**Importacion de librerias para su uso en el componente */
 import { Alert, Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { HiInformationCircle } from "react-icons/hi";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const LogInForm = () => {
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
+  /**Declaracion de variable referenciada al balor del componente aasignado para su uso en el codigo de funcionamiento del componente Js  */
   const refEmail = useRef(null);
   const refPswd = useRef(null);
+  /**Declaracion de variable compartida con el render de este mismo componente  */
   const [alert, setAlert] = useState("Bienvenida");
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +25,7 @@ const LogInForm = () => {
       data.append("usuario", refEmail.current.value);
       data.append("password", refPswd.current.value);
       console.log(data);
+      /**Funcion asincrona para realizar la peticion http al backend con metodo POST */
       const resp = await fetch(URL, {
         method: "POST",
         body: data,
@@ -40,6 +48,7 @@ const LogInForm = () => {
         Inicio de Sesion
       </p>
       <div>
+        {/**Condicion de alerta para despliegue de mensaje al usuario */}
         {(() => {
           switch (alert) {
             case "Bienvenida":
@@ -74,36 +83,29 @@ const LogInForm = () => {
         })()}
       </div>
       <div>
+        {/**Renderizacion del formulario para el incio de sesion */}
         <div className="mb-2 block">
           <Label htmlFor="email1" value="Tu email" />
         </div>
         <TextInput
           id="email1"
           placeholder="name@mail.com"
-          // required
           type="email"
           ref={refEmail}
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
       <div>
         <div className="mb-2 block">
           <Label htmlFor="password1" value="Tu contraseña" />
         </div>
-        <TextInput
-          id="password1"
-          // required
-          ref={refPswd}
-          type="password"
-          // value={password}
-          // onChange={(e) => setPassword(e.target.value)}
-        />
+        <TextInput id="password1" required ref={refPswd} type="password" />
       </div>
       <div className="flex items-center gap-2">
         <Checkbox id="remember" />
         <Label htmlFor="remember">Recuerdame</Label>
       </div>
+      {/**Renderizacion del formulario para ejecutar la peticion al backend de incio de sesion*/}
       <Button onClick={handleSubmit} type="submit">
         Iniciar Sesion
       </Button>

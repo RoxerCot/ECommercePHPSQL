@@ -1,15 +1,25 @@
+/**Importacion de librerias para su uso en el componente */
 import { Avatar, Dropdown, Button, Modal } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { useEffect, useState } from "react";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const AvatarDropDown = () => {
+  /**Declaracion de funcion para definir  variable compartida por userContext */
   const { admin, nameUser } = useUserContext();
+  /**Declaracion de variable compartida con el render de este mismo componente  */
   const [openModal, setOpenModal] = useState(false);
   const [delUser, setDelUser] = useState(false);
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
 
+  /**
+   * En este Use Effect se borra el usuario
+   */
   useEffect(() => {
     const fetchData = async () => {
       var data = new FormData();
@@ -26,11 +36,12 @@ const AvatarDropDown = () => {
       navigate(0);
     }
   }, [delUser]);
-
+  /**Funcion referenciada que activa la ejecucion del useEffect */
   const handleAcceptDelete = () => {
     setOpenModal(false);
     setDelUser(true);
   };
+  /**Funciones referenciadas para navegar a la opcion correspondiente */
   const handleCart = () => {
     navigate("/productos/carrito");
   };
@@ -42,10 +53,12 @@ const AvatarDropDown = () => {
   };
   return (
     <>
+    {/** Renderizacion de menu desplegable*/}
       <Dropdown
         arrowIcon={false}
         inline
         label={
+          {/** Renderizacion del Avatar generico*/}
           <Avatar
             className="mr-12"
             alt="User settings"
@@ -54,7 +67,7 @@ const AvatarDropDown = () => {
           />
         }
       >
-        {console.log(nameUser)}
+    {/** Renderizacion de items del menu desplegable*/}
         <Dropdown.Header className="">
           <span className="block text-sm">
             {admin == 1 ? "Admin" : "Usuario"}
@@ -79,6 +92,7 @@ const AvatarDropDown = () => {
           </>
         )}
       </Dropdown>
+    {/** Renderizacion de ventana emergente*/}
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
         <Modal.Header>ATENCION</Modal.Header>
         <Modal.Body>

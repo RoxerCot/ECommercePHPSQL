@@ -1,14 +1,21 @@
+/**Importacion de librerias para su uso en el componente */
 import { Alert, Button, Label, TextInput } from "flowbite-react";
 import { useRef, useState } from "react";
 import { HiInformationCircle } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+/**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 
 const NuevaCategoria = () => {
+  /**Declaracion de variabla para compartir el valor dentro de un componente renderizado, a las funciones ejecutables de  Js*/
   const refCategory = useRef(null);
+  /**Declaracion de hook useNavigate, para poder ocupar la funcion navigate
+   * que se ocupa para navegar entre las rutas declaradas en router.jsx
+   */
   const navigate = useNavigate();
+  /**Declaracion de hook useState para generar la variable correspondiente a la implementacion de mensajes para el usuario */
   const [alert, setAlert] = useState("");
-
+  /**Funcion asincrona para hacer peticion al back end y añadir una categoria */
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -36,10 +43,12 @@ const NuevaCategoria = () => {
   };
 
   return (
+    /**Renderizacion de formulario para ingresar una nueva categoria */
     <form
       onSubmit={handleSubmit}
       className="flex flex-col h-screen mt-4 space-y-6 items-center justify-center w-screen"
     >
+      {/**Renderizacion de alerta dependiendo la respuesta de peticion al backend */}
       {(() => {
         switch (alert) {
           case "Category Already Exists":
