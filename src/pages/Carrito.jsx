@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useUserContext } from "../context/UserContext";
 import { Button, ListGroup } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../context/UserContext";
 /**Declaracion de constante que contiene la direccion a la backend */
 const URL = "http://localhost/BackEnd2/Api.php";
 

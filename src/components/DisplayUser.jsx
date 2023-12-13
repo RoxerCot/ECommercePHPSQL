@@ -1,4 +1,4 @@
-import { Button, Table } from "flowbite-react";
+import { Button, Label, Table } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 const URL = "http://localhost/BackEnd2/Api.php";
@@ -49,7 +49,7 @@ const DisplayUser = ({ props }) => {
         </Button>
       </div>
       <div className="basis-1/4 pt-12 justify-center items-center flex">
-        <p className="text-2xl font-bold">Usuario</p>
+        <Label className="text-2xl font-bold">Usuario</Label>
       </div>
       <div className=" justify-center items-center flex">
         <Table>
@@ -58,9 +58,6 @@ const DisplayUser = ({ props }) => {
             <Table.HeadCell>Usuario</Table.HeadCell>
             <Table.HeadCell>Sesion</Table.HeadCell>
             <Table.HeadCell>Admin</Table.HeadCell>
-            <Table.HeadCell>
-              <span className="sr-only">Edit</span>
-            </Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
             <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">

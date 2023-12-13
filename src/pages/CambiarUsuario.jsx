@@ -30,6 +30,7 @@ const CambiarUsuario = () => {
         response_json["Mensaje"] == "Bienvenida" ||
         response_json["Mensaje"] == "User Changed"
       ) {
+        localStorage.setItem("Usuario", JSON.stringify(newUsr));
         setPswd("");
         setNewUsr("");
         setNewUsrConf("");

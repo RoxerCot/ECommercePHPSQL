@@ -36,7 +36,7 @@ const PrivateLayout = () => {
   /**Tema personalizado para la estetica de cualquier componente de flowbite */
   const customTheme = {
     root: {
-      base: "w-full h-full rounded-none bg-white shadow dark:bg-gray-800 md:flex md:items-center md:justify-between ",
+      base: "w-full h-full rounded-none bg-white shadow dark:bg-gray-800 md:flex md:items-center md:justify-between mt-8",
       container: "w-full p-6 ",
       bgDark: "bg-gray-800",
     },

@@ -53,12 +53,11 @@ const AvatarDropDown = () => {
   };
   return (
     <>
-    {/** Renderizacion de menu desplegable*/}
+      {/** Renderizacion de menu desplegable*/}
       <Dropdown
         arrowIcon={false}
         inline
         label={
-          {/** Renderizacion del Avatar generico*/}
           <Avatar
             className="mr-12"
             alt="User settings"
@@ -67,7 +66,7 @@ const AvatarDropDown = () => {
           />
         }
       >
-    {/** Renderizacion de items del menu desplegable*/}
+        {/** Renderizacion de items del menu desplegable*/}
         <Dropdown.Header className="">
           <span className="block text-sm">
             {admin == 1 ? "Admin" : "Usuario"}
@@ -92,7 +91,7 @@ const AvatarDropDown = () => {
           </>
         )}
       </Dropdown>
-    {/** Renderizacion de ventana emergente*/}
+      {/** Renderizacion de ventana emergente*/}
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
         <Modal.Header>ATENCION</Modal.Header>
         <Modal.Body>
